@@ -7,10 +7,12 @@ function App() {
 
   return (
     <>
+    {/* This is will handle all the routes in my application */}
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="*" element={<NoPage />} />
       </Routes>
       </BrowserRouter>
     </>
