@@ -1,12 +1,18 @@
-
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import LoginPage from "./pages/Login/LoginPage"
+//import LayoutPage from "./pages/Layout/LayoutPage";
+import HomePage from "./pages/Home/HomePage";
 
 function App() {
 
   return (
     <>
-      <div className="w-screen h-screen bg-red-500">
-
-      </div>
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/home" element={<HomePage />} />
+      </Routes>
+      </BrowserRouter>
     </>
   )
 }
