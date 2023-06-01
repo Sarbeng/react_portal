@@ -5,9 +5,10 @@ interface Props{
   label?:string
   value?:string
   ref?:string
+  handleChange: React.ChangeEvent<HTMLInputElement>
 }
 
-export default function TextInput  (props:Props) {
+export default function TextInput  (props:any) {
     return (
         
             <div id="inputGroup">
@@ -20,7 +21,11 @@ export default function TextInput  (props:Props) {
                 type={props.type}
                 value={props.value}
                 ref={props.ref}
+                onChange={props.handleChange}
+                onBlur={props.handleBlur}
+
               />
+              
             </div>
        
     );

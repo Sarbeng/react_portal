@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
+    //adding a custom font
+    fontFamily: {
+      'sans': ['Poppins', 'Poppins', 'sans-serif'],
+    },
     extend: {
+      //adding custom fonts
+      // fontFamily: {
+      //   'poppins': ['Poppins', 'sans-serif']
+      // },
+      // adding custom colors to tailwind styles
       colors: {
         'primary' : {
           main: '#273B73',
