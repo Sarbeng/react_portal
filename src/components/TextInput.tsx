@@ -1,14 +1,15 @@
 
 interface Props{
-  name?: string
-  type?: string
-  label?:string
-  value?:string
-  ref?:string
-  handleChange: React.ChangeEvent<HTMLInputElement>
+  name?: string;
+  type?: string;
+  label?:string;
+  value?:string;
+  ref?:string;
+  handleChange: (e?: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
+  handleBlur: React.FocusEventHandler<HTMLInputElement> | undefined;
 }
 
-export default function TextInput  (props:any) {
+export default function TextInput  (props:Props) {
     return (
         
             <div id="inputGroup">
@@ -16,7 +17,7 @@ export default function TextInput  (props:any) {
                 {props.label}
               </label>
               <input
-                className="mt-1  h-12 border border-primary-border rounded-lg w-full py-2 px-3 text-primary-main focus:outline-none  focus:border-primary-focused focus:ring-1 shadow-sm focus:ring-primary-focused "
+                className="mt-1 h-12 border border-primary-border rounded-lg w-full py-2 px-3 text-primary-main focus:outline-none  focus:border-primary-focused focus:ring-1 shadow-sm focus:ring-primary-focused "
                 name={props.name}
                 type={props.type}
                 value={props.value}
