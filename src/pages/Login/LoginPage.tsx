@@ -1,12 +1,9 @@
 import TextInput from "../../components/TextInput";
 import { useFormik } from "formik";
-import { useEffect, useState } from "react";
 import * as Yup from "yup";
+import UccLogo from "../../assets/UccLogo"
 
-const handleClick = (event: any) => {
-  event.preventDefault();
-  console.log("clicked");
-};
+
 
 export default function LoginPage() {
   
@@ -33,8 +30,12 @@ export default function LoginPage() {
   return (
     <>
       <div className="flex justify-center items-center h-screen w-screen md:bg-slate-100">
-        <div className="p-4 md:p-16 bg-white w-full md:w-1/3">
+        <div className="p-4 md:p-16 bg-white w-full md:w-4/12">
           <form onSubmit={formik.handleSubmit}>
+
+            {/* the logo section of the form goes here */}
+            <UccLogo />
+            {/* end of logo section */}
             <div className="mb-6">
               <TextInput
                 inputStyle = {formik.touched && formik.errors.email ? ("error"): "default"}

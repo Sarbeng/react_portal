@@ -14,6 +14,6 @@ interface Props {
 
 export function IconInput (props: Props){
     return (
-
+        <div></div>
     );
 }
