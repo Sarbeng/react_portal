@@ -1,5 +1,6 @@
 import TextInput from "../../components/TextInput";
 import { useFormik } from "formik";
+import { useEffect, useState } from "react";
 import * as Yup from "yup";
 
 const handleClick = (event: any) => {
@@ -8,6 +9,10 @@ const handleClick = (event: any) => {
 };
 
 export default function LoginPage() {
+  
+
+ 
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -21,6 +26,10 @@ export default function LoginPage() {
       alert(JSON.stringify(values, null, 2));
     },
   });
+
+  
+
+  
   return (
     <>
       <div className="flex justify-center items-center h-screen w-screen md:bg-slate-100">
@@ -28,6 +37,7 @@ export default function LoginPage() {
           <form onSubmit={formik.handleSubmit}>
             <div className="mb-6">
               <TextInput
+                inputStyle = {formik.touched && formik.errors.email ? ("error"): "default"}
                 label="Email"
                 name="email"
                 type="email"
@@ -41,6 +51,7 @@ export default function LoginPage() {
             </div>
             <div className="">
               <TextInput
+                inputStyle={formik.touched && formik.errors.email ? ("error"): "default"}
                 label="Password"
                 name="password"
                 type="password"
