@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {MdVisibility,MdVisibilityOff} from "react-icons/md"
+import {MdOutlineVisibility,MdOutlineVisibilityOff} from "react-icons/md"
 interface Props {
     name?: string;
     type?: string;
@@ -41,7 +41,7 @@ export function PasswordInput (props: Props){
         onBlur={props.handleBlur}
         
       />
-      <button className="px-3" onClick={handleVisibility}>{visible ? <MdVisibility/> : <MdVisibilityOff/>}</button>
+      <a className="px-3" onClick={handleVisibility}>{visible ? <MdOutlineVisibility/> : <MdOutlineVisibilityOff/>}</a>
       </div>
     </div>
     );
