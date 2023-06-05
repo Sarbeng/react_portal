@@ -2,6 +2,7 @@ import TextInput from "../../components/TextInput";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import UccLogo from "../../assets/UccLogo"
+import {BsGoogle} from "react-icons/bs"
 
 
 
@@ -36,7 +37,7 @@ export default function LoginPage() {
             {/* the logo section of the form goes here */}
             <UccLogo />
             {/* end of logo section */}
-            <div className="mb-6">
+            <div className="mb-2">
               <TextInput
                 inputStyle = {formik.touched && formik.errors.email ? ("error"): "default"}
                 label="Email"
@@ -72,7 +73,24 @@ export default function LoginPage() {
                 Sign In
               </button>
             </div>
+            
           </form>
+          {/* the divider goes here */}
+          <div className="flex justify-center items-center gap-3 mt-4 mb-4">
+          <hr className="h-0.5 bg-primary-main w-full" />
+          <p>or</p>
+          <hr className="h-0.5 bg-primary-main w-full" />
+          </div>
+
+          {/* the google signin button lies here, it is to redirect the user to google to signIn to the page */}
+          <div id="googleSignIn">
+              <button
+                className="bg-red-700 w-full text-white rounded-lg px-4 py-2 h-12 items-center justify-center gap-3  flex "
+              >
+                <BsGoogle/>
+                <a href="https://www.google.com">Sign In with Google  </a>
+              </button>
+            </div>
         </div>
       </div>
     </>
