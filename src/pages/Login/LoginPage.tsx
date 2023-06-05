@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import UccLogo from "../../assets/UccLogo"
 import {BsGoogle} from "react-icons/bs"
+import { IconInput } from "../../components/PasswordInput";
 
 
 
@@ -66,6 +67,9 @@ export default function LoginPage() {
               ) : null}
             </div>
             <div>
+              <IconInput name="email" type="password" />
+            </div>
+            <div>
               <button
                 className="bg-primary-main w-full text-white rounded-lg px-4 py-2 h-12 mt-8"
                 type="submit"
@@ -77,9 +81,9 @@ export default function LoginPage() {
           </form>
           {/* the divider goes here */}
           <div className="flex justify-center items-center gap-3 mt-4 mb-4">
-          <hr className="h-0.5 bg-primary-main w-full" />
+          <hr className="h-0.5 bg-primary-border w-full" />
           <p>or</p>
-          <hr className="h-0.5 bg-primary-main w-full" />
+          <hr className="h-0.5 bg-primary-border w-full" />
           </div>
 
           {/* the google signin button lies here, it is to redirect the user to google to signIn to the page */}
