@@ -1,5 +1,7 @@
+import LayoutPage from "../Layout/LayoutPage";
+
 export default function Appraisal () {
     return (
-        <>Appraisal Details Page</>
+        <LayoutPage>Appraisal Details Page</LayoutPage>
     );
 }

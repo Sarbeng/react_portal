@@ -1,5 +1,9 @@
+import LayoutPage from "../Layout/LayoutPage";
+
 export default function Leave () {
     return (
-        <>Leave Page</>
+        <LayoutPage>
+            Leave
+        </LayoutPage>
     );
 }

@@ -1,5 +1,9 @@
+import LayoutPage from "../Layout/LayoutPage";
+
 export default function HomePage () {
     return (
-        <>Home Page</>
+        <LayoutPage>
+            HomePage
+        </LayoutPage>
     );
 }
