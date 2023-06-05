@@ -21,7 +21,6 @@ export default function TextInput(props: Props) {
   //styling for the error state
   const errortStyle = "mt-2 mb-2 h-12 border border-red-600 rounded-lg w-full py-2 px-3 text-primary-main focus:outline-none  focus:border-red-500 focus:ring-1 shadow-sm focus:ring-red-500 ";
   //styling for the success state
-  const successtStyle = "mt-2 mb-2 h-12 border border-green-600 rounded-lg w-full py-2 px-3 text-primary-main focus:outline-none  focus:border-green-500 focus:ring-1 shadow-sm focus:ring-green-500 ";
 
  
   return (

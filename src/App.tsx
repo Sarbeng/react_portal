@@ -3,6 +3,12 @@ import LoginPage from "./pages/Login/LoginPage"
 //import LayoutPage from "./pages/Layout/LayoutPage";
 import HomePage from "./pages/Home/HomePage";
 import Error404 from "./pages/Error404/Error404";
+import PersonalDetails from "./pages/PersonalDetails/PersonalDetails";
+import Circular from "./pages/Circular/Circular";
+import Leave from "./pages/Leave/Leave";
+import Promotion from "./pages/Promotion/Promotion"
+import Appraisal from "./pages/Appraisal/Appraisal";
+import Procurement from "./pages/Procurement/Procurement";
 
 function App() {
 
@@ -13,12 +19,12 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
-        <Route path="/personalDetails" element={<HomePage />} />
-        <Route path="/circular" element={<HomePage />} />
-        <Route path="/leave" element={<HomePage />} />
-        <Route path="/promotion" element={<HomePage />} />
-        <Route path="/appraisal" element={<HomePage />} />
-        <Route path="/procurement" element={<HomePage />} />
+        <Route path="/personalDetails" element={<PersonalDetails />} />
+        <Route path="/circular" element={<Circular />} />
+        <Route path="/leave" element={<Leave />} />
+        <Route path="/promotion" element={<Promotion />} />
+        <Route path="/appraisal" element={<Appraisal />} />
+        <Route path="/procurement" element={<Procurement />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
       </BrowserRouter>
