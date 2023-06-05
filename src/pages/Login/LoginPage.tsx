@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import UccLogo from "../../assets/UccLogo"
 import {BsGoogle} from "react-icons/bs"
-import { IconInput } from "../../components/PasswordInput";
+import { PasswordInput } from "../../components/PasswordInput";
 
 
 
@@ -53,7 +53,7 @@ export default function LoginPage() {
               ) : null}
             </div>
             <div className="">
-              <TextInput
+              <PasswordInput
                 inputStyle={formik.touched && formik.errors.email ? ("error"): "default"}
                 label="Password"
                 name="password"
@@ -65,9 +65,6 @@ export default function LoginPage() {
               {formik.touched.password && formik.errors.password ? (
                 <div className="text-red-600">{formik.errors.password}</div>
               ) : null}
-            </div>
-            <div>
-              <IconInput name="email" type="password" />
             </div>
             <div>
               <button
