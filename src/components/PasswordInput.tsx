@@ -30,7 +30,7 @@ export function PasswordInput (props: Props){
       <label className="" htmlFor="email">
         {props.label}
       </label>
-      <div  className={`flex justify-center items-center gap-3 border rounded-lg  rounded-large ${props.inputStyle == "error" ? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused" } `}>
+      <div  className={`flex justify-center items-center gap-3 border rounded-lg  rounded-large mt-2 ${props.inputStyle == "error" ? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused" } `}>
       <input
         className=" h-12 rounded-lg w-full py-2 px-3 text-primary-main border-none focus:outline-none "
         name={props.name}

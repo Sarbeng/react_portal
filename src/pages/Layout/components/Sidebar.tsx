@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 export default function Sidebar () {
     return(
         <div>
-            Sidebar
+           
+            <Link to="/leave">Apply for leave</Link>
         </div>
     )
 }
