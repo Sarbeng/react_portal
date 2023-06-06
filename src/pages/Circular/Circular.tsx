@@ -1,5 +1,7 @@
+import LayoutPage from "../Layout/LayoutPage";
+
 export default function Circular () {
     return (
-        <>Personal Details Page</>
+        <LayoutPage>Personal Details Page</LayoutPage>
     );
 }

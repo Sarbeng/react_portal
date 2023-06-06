@@ -2,6 +2,7 @@ import ucc_logo from "./ucc_logo.svg";
 
 interface Props{
   logoStyle?:string;
+  textStyle?:string;
 }
 
 export default function UccLogo(props:Props) {
@@ -10,7 +11,10 @@ export default function UccLogo(props:Props) {
       <div className="bg-primary-main/[0.05] h-16 w-16 rounded-full ">
         <img src={ucc_logo} alt="" className="  p-3.5 " />
       </div>
-      <h2 className="text-2xl">Ucc Staff Portal</h2>
+     <div className="flex flex-col">
+     <h2 className={`text-2xl ${props.textStyle}`}>U.S.P.</h2>
+      <p className="text-xs">University Staff Portal</p>
+     </div>
     </div>
   );
 }
