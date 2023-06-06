@@ -18,21 +18,16 @@ export default function Header() {
         
     }
     
-
-    useEffect(()=>{
-      const screens = screen.width
-        if (screens < 900){
-            setHideMenu(false)
-        }
-    },[hideMenu])
+   
   return (
     <header className="flex content-between justify-between  items-center bg-white shadow-sm px-6">
       <UccLogo logoStyle="" />
-      <div>
-        <div className={`${hideMenu ? "hidden":""}`}>
+      <div className={` visible  lg:invisible`}>
             <MdOutlineMenu/>
         </div>
-      <button className={`${hideMenu ? "":"hidden"}`} id="dropdownDefaultButton" data-dropdown-toggle="dropdown" onClick={showDropdown} >
+      <div>
+        
+      <button className={`invisible lg:visible`} id="dropdownDefaultButton" data-dropdown-toggle="dropdown" onClick={showDropdown} >
         <div className="flex justify-center items-center gap-2">
           <img
             src="https://images.pexels.com/photos/16904262/pexels-photo-16904262/free-photo-of-hot-air-balloons-in-sky.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
