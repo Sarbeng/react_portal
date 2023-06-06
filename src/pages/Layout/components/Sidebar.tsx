@@ -1,16 +1,66 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import {
+  MdOutlineDashboard,
+  MdOutlinePerson,
+  MdOutlineNotifications,
+  MdOutlineWorkOff,
+  MdOutlineStackedLineChart,
+  
+  MdOutlineShop,
 
-export default function Sidebar () {
-    return(
-        <div className="flex flex-col">
-           
-            <Link to="/home">Dashboard</Link>
-            <Link to="/personalDetails">Personal Details</Link>
-            <Link to="/circular">Circular</Link>
-            <Link to="/leave">Leave</Link>
-            <Link to="/promotion">Promotion</Link>
-            <Link to="/appraisal">Appraisal</Link>
-            <Link to="/procurement">Procurement</Link>
-        </div>
-    )
+  MdOutlineBallot,
+} from "react-icons/md";
+
+
+
+export default function Sidebar() {
+    const activeLink = 'rounded-r-full bg-primary-main text-white'
+    const normalLink = ''
+  return (
+    <aside className="fixed  shadow-md  left-0 z-40 w-80 h-screen transition-transform -translate-x-full sm:translate-x-0 ">
+      <div
+        id="links"
+        className="flex flex-col h-full px-8 py-8 overflow-y-auto bg-white gap-5 dark:bg-gray-800 text-base text-primary-main "
+      >
+        
+        <NavLink
+          to="/home"
+          className={({isActive}) => isActive ? activeLink: normalLink + "hover:rounded-r-full hover:bg-primary-main hover:text-white" }
+        >
+            <p className="flex items-center gap-3  py-3 px-4 ">          <MdOutlineDashboard style={{ fontSize: "1.5rem" }} />
+          Dashboard</p>
+        </NavLink>
+        <NavLink to="/personalDetails"  className={({isActive}) => isActive ? activeLink: normalLink + "hover:rounded-r-full hover:bg-primary-main hover:text-white" }>
+         
+          <p className="flex items-center gap-3 py-3 px-4 ">
+            <MdOutlinePerson style={{ fontSize: "1.5rem" }} />
+            Personal Details
+          </p>
+        </NavLink>
+        <NavLink to="/circular"  className={({isActive}) => isActive ? activeLink: normalLink + "hover:rounded-r-full hover:bg-primary-main hover:text-white" }>
+          <p className="flex items-center gap-3 py-3 px-4 "><MdOutlineNotifications style={{ fontSize: "1.5rem" }} />
+          Circular</p>
+        </NavLink>
+        <NavLink to="/leave"  className={({isActive}) => isActive ? activeLink: normalLink + "hover:rounded-r-full hover:bg-primary-main hover:text-white" }>
+          <p className="flex items-center gap-3 py-3 px-4"><MdOutlineWorkOff style={{ fontSize: "1.5rem" }} />
+          Leave</p>
+        </NavLink>
+        <NavLink to="/promotion"  className={({isActive}) => isActive ? activeLink: normalLink + "hover:rounded-r-full hover:bg-primary-main hover:text-white" }>
+            <p className="flex items-center gap-3 py-3 px-4"><MdOutlineStackedLineChart style={{ fontSize: "1.5rem" }} />
+          Promotion</p>
+          
+        </NavLink>
+        <NavLink to="/appraisal"  className={({isActive}) => isActive ? activeLink: normalLink + "hover:rounded-r-full hover:bg-primary-main hover:text-white" }>
+            <p className="flex items-center gap-3 py-3 px-4"><MdOutlineBallot style={{ fontSize: "1.5rem" }} /> Appraisal</p>
+          
+        </NavLink>
+        <NavLink to="/procurement"  className={({isActive}) => isActive ? activeLink: normalLink + "hover:rounded-r-full hover:bg-primary-main hover:text-white" }>
+            <p className="flex items-center gap-3 py-3 px-4"> <MdOutlineShop style={{ fontSize: "1.5rem" }} />
+          Procurement</p>
+         
+        </NavLink>
+      </div>
+    </aside>
+  );
 }
+
