@@ -20,11 +20,11 @@ export default function Header() {
     
    
   return (
-    <header className="flex content-between justify-between  items-center bg-white shadow-sm px-6">
+    <header className="flex  justify-between  items-center bg-white shadow-sm px-6">
+      
       <UccLogo logoStyle="" />
-      <div className={` visible  lg:invisible`}>
-            <MdOutlineMenu/>
-        </div>
+      <div className="flex float-right">
+     
       <div>
         
       <button className={`invisible lg:visible`} id="dropdownDefaultButton" data-dropdown-toggle="dropdown" onClick={showDropdown} >
@@ -38,6 +38,7 @@ export default function Header() {
           <MdOutlineArrowDropDown />
         </div>
       </button>
+      <button className={` visible  lg:invisible`}><MdOutlineMenu/></button>
       <div id="dropdown" className={`z-10 absolute  bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 right-5 ${showModal ? "" : "hidden"}`}>
     <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
       <li>
@@ -54,6 +55,7 @@ export default function Header() {
       </li>
     </ul>
 </div>
+      </div>
       </div>
     </header>
   );
