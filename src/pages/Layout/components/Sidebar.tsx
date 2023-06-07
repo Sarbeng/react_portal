@@ -24,10 +24,10 @@ export default function Sidebar(props:Props) {
     
 
   return (
-    <aside className={`fixed shadow-md  left-0 z-40 w-80 h-screen transition-transform  ${toggle == props.toggle == false ? "" : "-translate-x-full sm:translate-x-0 sm:bg-black sm:w-full"  }`}>
+    <aside className={`fixed shadow-md  left-0 z-40 w-80 h-screen transition-transform  ${toggle == props.toggle == false ? "" : "-translate-x-full sm:translate-x-0 "  }`}>
       <div
         id="links"
-        className="flex flex-col h-full px-8 py-8 overflow-y-auto bg-white gap-5 dark:bg-gray-800 text-base text-primary-main "
+        className="flex flex-col h-full px-8 py-8 overflow-y-auto bg-white gap-5 dark:bg-gray-800 text-base text-primary-main  "
       >
         
         <NavLink
