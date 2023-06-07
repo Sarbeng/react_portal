@@ -5,10 +5,8 @@ import {
   MdOutlineNotifications,
   MdOutlineWorkOff,
   MdOutlineStackedLineChart,
-  
-  MdOutlineShop,
-
   MdOutlineBallot,
+  MdOutlineShoppingBag,
 } from "react-icons/md";
 
 
@@ -55,7 +53,7 @@ export default function Sidebar() {
           
         </NavLink>
         <NavLink to="/procurement"  className={({isActive}) => isActive ? activeLink: normalLink + "hover:rounded-r-full hover:bg-primary-main hover:text-white" }>
-            <p className="flex items-center gap-3 py-3 px-4"> <MdOutlineShop style={{ fontSize: "1.5rem" }} />
+            <p className="flex items-center gap-3 py-3 px-4"> <MdOutlineShoppingBag style={{ fontSize: "1.5rem" }} />
           Procurement</p>
          
         </NavLink>
