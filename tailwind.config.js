@@ -1,3 +1,5 @@
+import plugin from 'tailwindcss';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -29,10 +31,12 @@ export default {
     },
   },
   plugins: [
-    function ({ addVariant }) {
-      addVariant('child', '& > *');
-      addVariant('child-hover', '& > *:hover');
-  }
+  
+  plugin(({ addBase, theme }) => {
+    addBase({
+      html: { color: theme("colors.red.500") },
+    });
+}),
   ],
 }
 }
