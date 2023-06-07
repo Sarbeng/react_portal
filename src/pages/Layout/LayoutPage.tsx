@@ -1,13 +1,11 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
 
 export default function LayoutPage (props:any) {
     return (
         <> 
         <Header/>
-        <Sidebar/>
-        <main>{props.children}</main>
+        <main className="p-4 sm:ml-80 md:ml-96 md:mt-12">{props.children}</main>
         <Footer/>
         </>
     );

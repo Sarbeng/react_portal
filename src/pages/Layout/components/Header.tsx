@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import UccLogo from "../../../assets/UccLogo";
 import { MdOutlineArrowDropDown, MdOutlineMenu } from "react-icons/md";
+import Sidebar from "./Sidebar";
+
+
 
 export default function Header() {
   const [showModal, setShowModal] = useState(false);
-  const [hideMenu, setHideMenu] = useState(true);
 
   // function to display the dropdown menu
   const showDropdown = () => {
@@ -17,7 +19,14 @@ export default function Header() {
     clearTimeout;
   };
 
+  const [toggle,setToggle] = useState(false)
+  const toggleSidebar = () => {
+        setToggle(!toggle)
+    }
+
+
   return (
+    <>
     <header className="flex  justify-between  items-center bg-white shadow-sm px-6">
       <UccLogo />
       <div id="menu">
@@ -37,7 +46,7 @@ export default function Header() {
               <MdOutlineArrowDropDown />
             </div>
           </button>
-          <button className={` visible  lg:invisible px-6 py-6 z-10 absolute right-5`}>
+          <button className={` visible  lg:invisible px-6 py-6 z-10 absolute right-5`} onClick={toggleSidebar}>
             <MdOutlineMenu style={{ fontSize: "1.5rem" }} />
           </button>
           <div
@@ -86,5 +95,7 @@ export default function Header() {
           </div>
         </div>
     </header>
+    <Sidebar toggle={toggle} />
+    </>
   );
 }
