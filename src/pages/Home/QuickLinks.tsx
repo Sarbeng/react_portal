@@ -1,4 +1,4 @@
-import { MdOutlineBook, MdOutlineCollectionsBookmark, MdOutlineLibraryBooks, MdOutlineLink, MdOutlineList, MdOutlineLocalActivity, MdOutlineLocalLibrary, MdOutlinePattern, MdOutlineReadMore, MdOutlineSentimentNeutral, MdOutlineSpeaker, MdOutlineStackedBarChart, MdOutlineStackedLineChart, MdOutlineViewList, MdOutlineWifi, MdOutlineWorkOff } from "react-icons/md";
+import {  MdOutlineLibraryBooks,  MdOutlineList,MdOutlineLocalLibrary,  MdOutlineStackedLineChart, MdOutlineWifi, MdOutlineWorkOff } from "react-icons/md";
 
 export default function QuickLinks (){
     const quickLinks = [
