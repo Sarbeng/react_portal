@@ -14,3 +14,5 @@ The folder structure follows a simple format of components and pages inside the 
         - LoginPage.tsx
 
 
+## to run the application
+run  'npm run dev'

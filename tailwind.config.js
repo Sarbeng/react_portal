@@ -1,5 +1,3 @@
-import plugin from 'tailwindcss';
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -12,10 +10,6 @@ export default {
       'sans': ['Poppins', 'Poppins', 'sans-serif'],
     },
     extend: {
-      //adding custom fonts
-      // fontFamily: {
-      //   'poppins': ['Poppins', 'sans-serif']
-      // },
       // adding custom colors to tailwind styles
       colors: {
         'primary' : {
@@ -32,11 +26,7 @@ export default {
   },
   plugins: [
   
-  plugin(({ addBase, theme }) => {
-    addBase({
-      html: { color: theme("colors.red.500") },
-    });
-}),
+  
   ],
 }
 }
