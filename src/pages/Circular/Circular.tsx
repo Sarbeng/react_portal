@@ -21,7 +21,7 @@ export default function Circular() {
     }
   ]
   return (
-    <LayoutPage>
+    
       <div className="max-w-md  bg-white rounded-xl shadow-md overflow-scroll  md:h-80 md:max-w-2xl">
         <div className="md:flex">
           <div className="md:shrink-0">
@@ -44,7 +44,7 @@ export default function Circular() {
                 href={circular.url}
                 className="mt-1 leading-tight flex items-center justify-between w-full max-w-sm gap-4 p-2 py-4  hover:bg-primary-surface hover:rounded-r-full"
               >
-                <p className="truncate ...">{circular.topic}</p> <MdOutlineChevronRight />
+                <p className="truncate ...">{circular.topic}</p> <span className="text-lg"><MdOutlineChevronRight /></span>
                 
               </a>
                   )
@@ -53,6 +53,6 @@ export default function Circular() {
           </div>
         </div>
       </div>
-    </LayoutPage>
+    
   );
 }
