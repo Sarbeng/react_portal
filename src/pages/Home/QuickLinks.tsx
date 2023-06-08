@@ -35,7 +35,7 @@ export default function QuickLinks (){
     ]
     return (
         <div>
-<div className="max-w-md  bg-white rounded-xl shadow-md overflow-scroll  md:h-full md:max-w-lg">
+<div className="max-w-md  bg-white rounded-xl shadow-md overflow-scroll  md:h-80 md:max-w-lg">
         <div className="md:flex">
           <div className="md:shrink-0">
             
