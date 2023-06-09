@@ -5,18 +5,18 @@ interface Props {
   value?: string;
   ref?: string;
   inputStyle?:string
-  handleChange: (
+  handleChange?: (
     e?:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => void;
-  handleBlur: React.FocusEventHandler<HTMLInputElement> | undefined;
+  handleBlur?: React.FocusEventHandler<HTMLInputElement> | undefined;
 }
 
 export default function TextInput(props: Props) {
   
   // style for the default state
-  const defaultStyle = "mt-2 mb-2 h-12 border border-primary-border rounded-lg w-full py-2 px-3 text-primary-main focus:outline-none  focus:border-primary-focused focus:ring-1 shadow-sm focus:ring-primary-focused  bg-white";
+  const defaultStyle = "mt-2 mb-2 h-12 border border-primary-border rounded-lg w-full py-2 px-3 text-primary-main focus:outline-none  focus:border-primary-focused focus:ring-1 shadow-sm focus:ring-primary-focused  bg-white ";
 
   //styling for the error state
   const errortStyle = "mt-2 mb-2 h-12 border border-red-600 rounded-lg w-full py-2 px-3 text-primary-main focus:outline-none  focus:border-red-500 focus:ring-1 shadow-sm focus:ring-red-500 ";
@@ -25,11 +25,11 @@ export default function TextInput(props: Props) {
  
   return (
     <div id="inputGroup" >
-      <label className="" htmlFor="email">
+      <label className="capitalize" htmlFor="email">
         {props.label}
       </label>
       <input
-        className={props.inputStyle =="error" ? errortStyle : defaultStyle}
+        className={`${props.inputStyle =="error" ? errortStyle : defaultStyle} `}
         name={props.name}
         type={props.type}
         value={props.value}
