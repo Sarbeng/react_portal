@@ -5,7 +5,7 @@ import HomePage from "./pages/Home/HomePage";
 import Error404 from "./pages/Error404/Error404";
 import PersonalDetails from "./pages/PersonalDetails/PersonalDetails";
 //import Circular from "./pages/Circular/Circular";
-import Leave from "./pages/Leave/Leave";
+import Leave from "./pages/Leave/LeaveModal";
 import Promotion from "./pages/Promotion/Promotion"
 import Appraisal from "./pages/Appraisal/Appraisal";
 import Procurement from "./pages/Procurement/Procurement";
