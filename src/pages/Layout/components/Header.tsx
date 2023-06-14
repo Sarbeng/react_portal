@@ -27,7 +27,7 @@ export default function Header() {
 
   return (
     <>
-    <header className="flex border   justify-between  items-center bg-white shadow-sm px-6">
+    <header className="flex border   justify-between  items-center bg-white shadow-sm px-6 sticky top-0 z-30">
       <UccLogo />
       <div id="menu">
           <button

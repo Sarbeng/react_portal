@@ -5,7 +5,7 @@ import HomePage from "./pages/Home/HomePage";
 import Error404 from "./pages/Error404/Error404";
 import PersonalDetails from "./pages/PersonalDetails/PersonalDetails";
 //import Circular from "./pages/Circular/Circular";
-import Leave from "./pages/Leave/LeaveModal";
+import LeavePage from "./pages/Leave/LeavePage";
 import Promotion from "./pages/Promotion/Promotion"
 import Appraisal from "./pages/Appraisal/Appraisal";
 import Procurement from "./pages/Procurement/Procurement";
@@ -21,7 +21,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/personalDetails" element={<PersonalDetails />} />
         {/* <Route path="/circular" element={<Circular />} /> */}
-        <Route path="/leave" element={<Leave />} />
+        <Route path="/leave" element={<LeavePage />} />
         <Route path="/promotion" element={<Promotion />} />
         <Route path="/appraisal" element={<Appraisal />} />
         <Route path="/procurement" element={<Procurement />} />
