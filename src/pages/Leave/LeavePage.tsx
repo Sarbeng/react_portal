@@ -5,6 +5,8 @@ import { useState } from "react";
 import LeaveStatistics from "./LeaveStatistics";
 import LeaveApplications from "./LeaveApplications";
 import LeaveRecords from "./LeaveRecords";
+import ApplyButton from "../../components/ApplyButton";
+import { MdOutlineWorkHistory } from "react-icons/md";
 
 export default function LeavePage() {
   const [showModal, setShowModal] = useState(false);
@@ -17,7 +19,7 @@ export default function LeavePage() {
   return (
     <LayoutPage>
       <div>
-        <section>
+        {/* <section>
           <div className="flex   items-center gap-3 justify-between">
             <h3 className="text-xl">Leave Page</h3>
             <Button
@@ -28,12 +30,12 @@ export default function LeavePage() {
             </Button>
           </div>
           <LeaveModal showModal={showModal} handleModal={handleModal} />
-        </section>
+        </section> */}
         <section className="">
           <LeaveStatistics />
         </section>
         <section>
-            <LeaveApplications/>
+            <ApplyButton To="/leave" Icon={<MdOutlineWorkHistory/>} heading="Apply Leave"/>
         </section>
         <section>
             <LeaveRecords/>

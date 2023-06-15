@@ -1,9 +1,8 @@
-import { NavLink } from "react-router-dom";
-import {useContext, useEffect, useState} from "react";
+import { NavLink,Link } from "react-router-dom";
+import { useState} from "react";
 import {
   MdOutlineDashboard,
   MdOutlinePerson,
-  MdOutlineNotifications,
   MdOutlineWorkOff,
   MdOutlineStackedLineChart,
   MdOutlineBallot,
@@ -50,7 +49,7 @@ export default function Sidebar(props:Props) {
       {
         linkName:"Procurement",
         linkIcon: <MdOutlineShoppingBag/>,
-        linkTo:"/promotion"
+        linkTo:"/procurement"
       },
       
     ]
@@ -68,13 +67,13 @@ export default function Sidebar(props:Props) {
         {
           navLinks.map((navLink)=>{
             return (
-              <NavLink
+              <Link
           to={navLink.linkTo}
           className={({isActive}) => isActive ? activeLink: normalLink + "hover:rounded-r-full hover:bg-primary-main hover:text-white" }
           >
             <p className="flex items-center gap-3  py-3 px-4 ">         <span className="text-2xl">{navLink.linkIcon}</span>
           {navLink.linkName}</p>
-        </NavLink>
+        </Link>
             )
           })
         }
