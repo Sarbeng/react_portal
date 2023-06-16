@@ -22,10 +22,10 @@ export default function LeaveModal(props: Props) {
   const formik = useFormik({
         
     initialValues: {
-        days_taken:"",
+        days_taken:"134",
         start_date:"",
-        emergency_name__and_address:"",
-        emergency_contact:""
+        emergency_name__and_address:"sjkdhsjhds",
+        emergency_contact:"198372837"
 
     },
     validationSchema: Yup.object({

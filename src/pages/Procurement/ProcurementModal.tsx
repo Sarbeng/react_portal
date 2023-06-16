@@ -4,6 +4,7 @@ import TextInput from "../../components/TextInput";
 import * as Yup from "yup";
 import {useFormik} from "formik"
 import Button from "../../components/Button";
+import SelectInput from "../../components/SelectInput";
 
 interface Props {
     showModal?: boolean;
@@ -16,17 +17,13 @@ export default function ProcurementModal(props:Props) {
   const formik = useFormik({
         
     initialValues: {
-        days_taken:"",
-        start_date:"",
-        emergency_name__and_address:"",
-        emergency_contact:""
+        quantity:"",
+        unit_price:"",
 
     },
     validationSchema: Yup.object({
-        days_taken: Yup.number().required("Expected days Taken cannot be empty").min(0).positive(),
-        start_date: Yup.date().required("Start Date cannot be empty"),
-        emergency_name__and_address: Yup.string().required("Emergency Name and Address cannot be empty").min(5,"Must be at least 8 characters long"),
-        emergency_contact: Yup.number().required("Emergency Contact be empty").min(10,"number is not up to 10")
+        quantity: Yup.number().required("Expected days Taken cannot be empty").min(0).positive(),
+        unit_price: Yup.number().required("The unit price cannot be empty").min(1).positive("Unit Price must be 1 or more"),
     }),
     onSubmit:(values) => {
         alert(JSON.stringify(values,null,2))
@@ -43,11 +40,13 @@ export default function ProcurementModal(props:Props) {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t gap-3">
-                  <div className="w-full bg-green-50 py-4  px-3 rounded-lg flex justify-center items-center gap-3">
-                    <h3 className="text-lg text-white p-4 w-14 h-14 rounded-full bg-green-600">
-                      45
-                    </h3>
-                    <p className="text-green-600">Leave Days Entitled</p>
+                  <div className="w-full bg-primary-surface py-4  px-3 rounded-lg flex justify-center items-center gap-3">
+                    
+                   <div className="flex gap-2 items-center">
+                   <p className="text-primary-main">Procurement</p>
+                   <hr className="inline-block h-full min-h-[1.5em] w-0.5  bg-neutral-300 opacity-100 dark:opacity-50" />
+                    <p className="bg-primary-main text-white  text-sm py-2 px-8 rounded-full">Request items</p>
+                   </div>
                     <button
                     className="p-1 ml-auto bg-transparent border-0 text-black  float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                     onClick={props.handleModal}
@@ -62,66 +61,43 @@ export default function ProcurementModal(props:Props) {
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
                   <form onSubmit={formik.handleSubmit}>
+                    <div>
+                        <SelectInput/>
+                    </div>
                     <div className="mb-4">
                       <TextInput
-                        inputStyle={formik.touched.days_taken && formik.errors.days_taken ? ("error"): "default"}
-                        name="days_taken"
+                        inputStyle={formik.touched.quantity && formik.errors.quantity ? ("error"): "default"}
+                        name="quantity"
                         type="number"
-                        label="Leave days to be taken"
+                        label="Quantity"
                         handleBlur={formik.handleBlur}
                         handleChange={formik.handleChange}
-                        value={formik.values.days_taken}
+                        value={formik.values.quantity}
 
                       />
-                      {formik.touched.days_taken && formik.errors.days_taken ? (
-                <div className="text-red-600">{formik.errors.days_taken}</div>
+                      {formik.touched.quantity && formik.errors.quantity ? (
+                <div className="text-red-600">{formik.errors.quantity}</div>
               ) : null}
                     </div>
+                    
                     <div className="mb-4">
                       <TextInput
-                      inputStyle={formik.touched.start_date && formik.errors.start_date ? ("error"): "default"}
-                        name="start_date"
-                        type="date"
-                        label="Expected Start Date"
-                        handleBlur={formik.handleBlur}
-                        handleChange={formik.handleChange}
-                        value={formik.values.start_date}
-                      />
-                      {formik.touched.start_date && formik.errors.start_date ? (
-                <div className="text-red-600">{formik.errors.start_date}</div>
-              ) : null}
-                    </div>
-                    <div className="mb-4">
-                      <TextInput
-                      inputStyle={formik.touched.emergency_name__and_address && formik.errors.emergency_name__and_address ? ("error"): "default"}
-                        name="emergency_name__and_address"
-                        type="text"
-                        label="Emergency Name & Address"
-                        value={formik.values.emergency_name__and_address}
+                      inputStyle={formik.touched.unit_price && formik.errors.unit_price ? ("error"): "default"}
+                        name="unit_price"
+                        type="number"
+                        label="Unit Price"
+                        value={formik.values.unit_price}
                         handleBlur={formik.handleBlur}
                         handleChange={formik.handleChange}
                       />
-                      {formik.touched.emergency_name__and_address && formik.errors.emergency_name__and_address ? (
-                <div className="text-red-600">{formik.errors.emergency_name__and_address}</div>
+                      {formik.touched.unit_price && formik.errors.unit_price ? (
+                <div className="text-red-600">{formik.errors.unit_price}</div>
               ) : null}
                     </div>
-                    <div className="mb-4">
-                      <TextInput
-                      inputStyle={formik.touched.emergency_contact && formik.errors.emergency_contact ? ("error"): "default"}
-                        name="emergency_contact"
-                        type="text"
-                        label="Emergency Contact"
-                        value={formik.values.emergency_contact}
-                        handleBlur={formik.handleBlur}
-                        handleChange={formik.handleChange}
-                      />
-                      {formik.touched.emergency_contact && formik.errors.emergency_contact ? (
-                <div className="text-red-600">{formik.errors.emergency_contact}</div>
-              ) : null}
-                    </div>
+                    
                     <div>
-                    <Button buttonStyle="bg-primary-main w-full text-white mb-0" onClick={props.handleModal}>Approve Leave</Button>
-                    <Button buttonStyle="text-red-600 w-full border" onClick={props.handleModal}>Disapprove Leave</Button>
+                    <Button buttonStyle="bg-primary-main w-full text-white mb-0" onClick={props.handleModal}>Add Item</Button>
+                    <Button buttonStyle="text-red-600 w-full border" onClick={props.handleModal}>Cancel</Button>
                     </div>
                   </form>
                 </div>
