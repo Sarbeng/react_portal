@@ -2,6 +2,7 @@ import { MdOutlineArrowRight, MdOutlineChevronRight } from "react-icons/md";
 import LayoutPage from "../Layout/LayoutPage";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 export default function Circular() {
   // const circulars = [
@@ -27,7 +28,9 @@ export default function Circular() {
   //   }
   // ]
   const [circulars,setCirculars] = useState([])
-
+  const [isLoading,setIsLoading] = useState(false);
+  // State to display error message
+const [errorMessage, setErrorMessage] = useState("");
  const getCircularData = () => {
 
 
@@ -35,17 +38,25 @@ export default function Circular() {
   // .then(response => response.json())
   // .then(data => console.log(data))
   // .catch(error => console.log(error));
-
+  setIsLoading(true)
+  
   axios
   .get('http://127.0.0.1:8000/api/circular/circular_list')
   .then(response => {
     const circular = response.data;
     setCirculars(circular);
+    setIsLoading(false) // hide loading screen
   })
-  .catch(error => console.log(error));
+  .catch(() => {
+    setErrorMessage("Unable to fetch Circular List")
+    setIsLoading(false)
+  });
  };
 
+
+
  useEffect(()=> {
+  
   getCircularData()
  },[])
 
@@ -65,8 +76,9 @@ export default function Circular() {
               Latest Circulars
             </div>
             <hr className=" border-primary-main h-4" />
-            
-              <div>
+              {isLoading ? <LoadingSpinner/> : null}
+              {  errorMessage &&
+                <div>
                 {circulars.map((circular:any)=>{
                   console.log(circular)
                   return(
@@ -80,6 +92,7 @@ export default function Circular() {
                   )
                 })}
               </div>
+              }
           </div>
         </div>
       </div>
