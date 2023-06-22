@@ -1,41 +1,33 @@
 import TextInput from "../../components/TextInput";
-import { useFormik } from "formik";
+import { useFormik,} from "formik";
 import * as Yup from "yup";
 import UccLogo from "../../assets/UccLogo";
 import { BsGoogle } from "react-icons/bs";
 import { PasswordInput } from "../../components/PasswordInput";
 import Button from "../../components/Button";
 //import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios"
 import { MdOutlineErrorOutline } from "react-icons/md";
 
 export default function LoginPage() {
  // const [success, setSuccess] = useState(null);
-  const [error, setError] = useState("")
+  const [error, setError] = useState(null)
   
   //const navigate = useNavigate();
 
   const onSubmit = async (values:any) =>{
-    setError("");
-    // const response = await axios.post('http://127.0.0.1:8000/api/auth/login', values).catch((err) => {
-    //   if (err && err.response){
-    //     setError(err.response.data.message)
-    //     //
-    //   }
-    // } );
-    // if (response) {
-    //   alert(`Welcome back in. Authenticating.... `);
-    // }
-    // console.log(values)
-
-    axios.post('http://127.0.0.1:8000/api/auth/login',values).catch((err)=> {
-      if (err.data.message){
-        setError(err.response.data.message)
-        console.log(err.response.data.message)
-        console.log(error)
-      }
-    })
+    setError(null)
+   //connecting to the logiin api
+    await axios.post('http://127.0.0.1:8000/api/auth/login',values).catch((err) => {
+    if (err) {
+      setError(err.response.data.message)
+      console.log(err.response.data.message)
+    }
+   })
+  //  if (response) {
+  //   alert("Welcome Back in. Authenticating...")
+  //  }
   } 
 
   const formik = useFormik({
@@ -56,7 +48,7 @@ export default function LoginPage() {
     <>
       <div className="flex justify-center items-center h-screen w-screen md:bg-slate-100 text-primary-main">
         <div className="p-4 md:p-16 bg-white w-full md:w-[524px] rounded-lg">
-          <div className="">{error? error : null }</div>
+          <div className={`${error ? "bg-red-50 text-red-600 px-4 py-4 rounded-lg mb-8" :""}`}>{error? error : "" }</div>
           <form onSubmit={formik.handleSubmit}>
             {/* the logo section of the form goes here */}
             <UccLogo />
