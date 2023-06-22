@@ -5,18 +5,19 @@ import UccLogo from "../../assets/UccLogo";
 import { BsGoogle } from "react-icons/bs";
 import { PasswordInput } from "../../components/PasswordInput";
 import Button from "../../components/Button";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios"
+import { MdOutlineErrorOutline } from "react-icons/md";
 
 export default function LoginPage() {
  // const [success, setSuccess] = useState(null);
-  const [error, setError] = useState(null)
+  const [error, setError] = useState("")
   
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const onSubmit = async (values:any) =>{
-    setError(null);
+    setError("");
     // const response = await axios.post('http://127.0.0.1:8000/api/auth/login', values).catch((err) => {
     //   if (err && err.response){
     //     setError(err.response.data.message)
@@ -31,9 +32,12 @@ export default function LoginPage() {
     axios.post('http://127.0.0.1:8000/api/auth/login',values).catch((err)=> {
       if (err.data.message){
         setError(err.response.data.message)
+        console.log(err.response.data.message)
+        console.log(error)
       }
     })
   } 
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -47,12 +51,12 @@ export default function LoginPage() {
     onSubmit,
   });
 
-
+  
   return (
     <>
       <div className="flex justify-center items-center h-screen w-screen md:bg-slate-100 text-primary-main">
         <div className="p-4 md:p-16 bg-white w-full md:w-[524px] rounded-lg">
-          <div className="text-black">{error? error : null }</div>
+          <div className="">{error? error : null }</div>
           <form onSubmit={formik.handleSubmit}>
             {/* the logo section of the form goes here */}
             <UccLogo />
@@ -72,7 +76,7 @@ export default function LoginPage() {
                 handleChange={formik.handleChange}
               />
               {formik.touched.username && formik.errors.username ? (
-                <div className="text-red-600">{formik.errors.username}</div>
+                <div className="flex items-center gap-2 text-red-600"> <span className="text-lg"><MdOutlineErrorOutline/></span>{formik.errors.username}</div>
               ) : null}
             </div>
             <div className="">
@@ -94,7 +98,7 @@ export default function LoginPage() {
               ) : null}
             </div>
             <div>
-              <Button buttonStyle="bg-primary-main w-full text-white" disabled={!formik.isValid} type="submit">
+              <Button buttonStyle={` w-full text-white ${formik.isValid ? "bg-primary-main " : "bg-primary-border"}`} disabled={!formik.isValid} type="submit">
                 Sign In
               </Button>
             </div>
