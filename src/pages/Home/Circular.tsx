@@ -32,12 +32,7 @@ export default function Circular() {
   // State to display error message
 const [errorMessage, setErrorMessage] = useState("");
  const getCircularData = () => {
-
-
-  // fetch('http://127.0.0.1:8000/api/circular/circular_list')
-  // .then(response => response.json())
-  // .then(data => console.log(data))
-  // .catch(error => console.log(error));
+  
   setIsLoading(true)
   
   axios
@@ -77,12 +72,11 @@ const [errorMessage, setErrorMessage] = useState("");
             </div>
             <hr className=" border-primary-main h-4" />
               {isLoading ? <LoadingSpinner/> : null}
-              {  errorMessage &&
+              {  isLoading == false &&
                 <div>
                 {circulars.map((circular:any)=>{
-                  console.log(circular)
                   return(
-                    <a
+                    <a key={circular.id}
                 href={`https://staffportal.ucc.edu.gh${circular.attachment}`}
                 className="mt-1 leading-tight flex items-center justify-between w-full max-w-sm gap-4 p-2 py-4  hover:bg-primary-surface hover:rounded-r-full"
               >
