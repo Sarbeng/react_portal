@@ -5,8 +5,8 @@ import UccLogo from "../../assets/UccLogo";
 import { BsGoogle } from "react-icons/bs";
 import { PasswordInput } from "../../components/PasswordInput";
 import Button from "../../components/Button";
-//import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {  useState } from "react";
 import axios from "axios"
 import { MdOutlineErrorOutline } from "react-icons/md";
 
@@ -14,20 +14,23 @@ export default function LoginPage() {
  // const [success, setSuccess] = useState(null);
   const [error, setError] = useState(null)
   
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onSubmit = async (values:any) =>{
     setError(null)
    //connecting to the logiin api
-    await axios.post('http://127.0.0.1:8000/api/auth/login',values).catch((err) => {
+   const response =  await axios.post('http://127.0.0.1:8000/api/auth/login',values).catch((err) => {
     if (err) {
       setError(err.response.data.message)
       console.log(err.response.data.message)
     }
    })
-  //  if (response) {
-  //   alert("Welcome Back in. Authenticating...")
-  //  }
+   if (response) {
+    alert("Welcome Back in. Authenticating...")
+   // navigate("/home")
+   console.log(response.data.data)
+
+   }
   } 
 
   const formik = useFormik({
