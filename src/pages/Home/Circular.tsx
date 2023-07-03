@@ -5,28 +5,7 @@ import { useEffect, useState } from "react";
 import LoadingSpinner from "../../components/LoadingSpinner";
 
 export default function Circular() {
-  // const circulars = [
-  //   {
-  //     id:1,
-  //     url: "https://mccallmacbainscholars.org/program/",
-  //     topic:"Change to leave structure"
-  //   },
-  //   {
-  //     id:2,
-  //     url: "https://mccallmacbainscholars.org/program/",
-  //     topic:"All forms available on staff portal at another and anothet and alalal"
-  //   },
-  //   {
-  //     id:3,
-  //     url: "https://mccallmacbainscholars.org/program/",
-  //     topic:"Leave Notice"
-  //   },
-  //   {
-  //     id:4,
-  //     url: "https://mccallmacbainscholars.org/program/",
-  //     topic:"E Procurement"
-  //   }
-  // ]
+ 
   const [circulars,setCirculars] = useState([])
   const [isLoading,setIsLoading] = useState(false);
   // State to display error message
@@ -36,9 +15,10 @@ const [errorMessage, setErrorMessage] = useState("");
   setIsLoading(true)
   
   axios
-  .get('http://127.0.0.1:8000/api/circular/circular_list')
+  .get('http://127.0.0.1:8000/api/V1/circular_list')
   .then(response => {
     const circular = response.data;
+    console.log(circular);
     setCirculars(circular);
     setIsLoading(false) // hide loading screen
   })

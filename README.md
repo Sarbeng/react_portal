@@ -15,4 +15,5 @@ The folder structure follows a simple format of components and pages inside the 
 
 
 ## to run the application
+run "npm install" first then
 run  'npm run dev'
