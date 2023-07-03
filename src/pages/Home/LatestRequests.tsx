@@ -54,7 +54,7 @@ export default function LatestRequests() {
 
           {latestRequests.map((latest) => {
             return (
-              <div className="mb-4">
+              <div className="mb-4" key={latest.heading1}>
                 <div className="flex gap-5 h-24 py-5 px-4 shadow-sm bg-white w-[780px] rounded-lg border">
                   <div className="flex flex-col max-w-xs w-44 gap-4">
                     <h4 className="text-xs uppercase font-semibold">

@@ -9,15 +9,15 @@ export default function Circular() {
   const [circulars,setCirculars] = useState([])
   const [isLoading,setIsLoading] = useState(false);
   // State to display error message
-const [errorMessage, setErrorMessage] = useState("");
+const [errorMessage, setErrorMessage] = useState('');
  const getCircularData = () => {
   
   setIsLoading(true)
   
   axios
-  .get('http://127.0.0.1:8000/api/V1/circular_list')
+  .get('http://127.0.0.1:8000/api/v1/circular')
   .then(response => {
-    const circular = response.data;
+    const circular = response.data.data;
     console.log(circular);
     setCirculars(circular);
     setIsLoading(false) // hide loading screen
@@ -51,8 +51,8 @@ const [errorMessage, setErrorMessage] = useState("");
               Latest Circulars
             </div>
             <hr className=" border-primary-main h-4" />
-              {isLoading ? <LoadingSpinner/> : null}
-              {  isLoading == false &&
+              {isLoading ? <LoadingSpinner/> : errorMessage}
+              {  isLoading == false && errorMessage == '' &&
                 <div>
                 {circulars.map((circular:any)=>{
                   return(
