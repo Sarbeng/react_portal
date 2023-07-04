@@ -22,24 +22,24 @@ export default function LoginPage() {
    const response =  await axios.post('http://127.0.0.1:8000/api/auth/login',values).catch((err) => {
     if (err) {
       setError(err.response.data.message)
-      console.log(err.response.data.message)
+      console.log(err.response.data.staff_no)
     }
    })
    if (response) {
     alert("Welcome Back in. Authenticating...")
-   // navigate("/home")
-   console.log(response.data.data)
+    navigate("/home")
+    console.log(response.data)
 
    }
   } 
 
   const formik = useFormik({
     initialValues: {
-      username: "",
+      staff_no: "",
       password: "",
     },
     validationSchema: Yup.object({
-      username: Yup.string().required("Username field cannot be empty"),
+      staff_no: Yup.string().required("staff_no field cannot be empty"),
       password: Yup.string().required("Password field cannot be empty"),
     }),
     validateOnBlur:true,
@@ -59,19 +59,19 @@ export default function LoginPage() {
             <div className="mb-2">
               <TextInput
                 inputStyle={
-                  formik.touched.username && formik.errors.username
+                  formik.touched.staff_no && formik.errors.staff_no
                     ? "error"
                     : "default"
                 }
-                label="Username"
-                name="username"
-                type="username"
+                label="Staff Number"
+                name="staff_no"
+                type="staff_no"
                 handleBlur={formik.handleBlur}
-                value={formik.values.username}
+                value={formik.values.staff_no}
                 handleChange={formik.handleChange}
               />
-              {formik.touched.username && formik.errors.username ? (
-                <div className="flex items-center gap-2 text-red-600"> <span className="text-lg"><MdOutlineErrorOutline/></span>{formik.errors.username}</div>
+              {formik.touched.staff_no && formik.errors.staff_no ? (
+                <div className="flex items-center gap-2 text-red-600"> <span className="text-lg"><MdOutlineErrorOutline/></span>{formik.errors.staff_no}</div>
               ) : null}
             </div>
             <div className="">
