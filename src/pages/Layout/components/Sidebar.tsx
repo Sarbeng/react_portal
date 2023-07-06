@@ -10,11 +10,12 @@ import {
   MdOutlineLogout,
 } from "react-icons/md";
 import axios from "axios";
+import {useSignOut} from "react-auth-kit";
 
 
-interface Props{
-    toggle?:boolean;
-  }
+interface Props {
+  toggle?:boolean;  
+}
 
 export default function Sidebar(props:Props) {
     const activeLink = 'rounded-r-full bg-primary-main text-white'
@@ -56,16 +57,11 @@ export default function Sidebar(props:Props) {
       
     ]
     
-    const goBackToLogin = useNavigate();
-
-    const handleLogout = async () => {
-      
-      
-        localStorage.removeItem('user')
-        //setCurrentUser({})
-        goBackToLogin('/')
-    
-      
+    const signOut = useSignOut();
+    const navigate = useNavigate()
+    const logout = () => {
+      signOut()
+      navigate('/')
     }
     
 
@@ -73,7 +69,7 @@ export default function Sidebar(props:Props) {
     <aside className={`fixed shadow-md border  left-0 z-40 w-80 h-screen transition-transform  ${toggle == props.toggle == false ? "" : "-translate-x-full sm:translate-x-0 "  }`}>
       <div
         id="links"
-        className="flex flex-col h-full px-8 py-8 overflow-y-auto bg-white gap-5 dark:bg-gray-800 text-base text-primary-main  "
+        className="flex flex-col h-full px-8 py-8 overflow-y-auto bg-white gap-5 dark:bg-gray-800 dark:text-white text-base text-primary-main  "
       >
         
         {
@@ -91,8 +87,7 @@ export default function Sidebar(props:Props) {
           })
         }
         <button
-          
-          onClick={handleLogout}
+        onClick={logout}
           className={ " hover:rounded-r-full hover:bg-primary-main hover:text-white" }
           >
             <p className="flex items-center gap-3  py-3 px-4 ">         <span className="text-2xl"><MdOutlineLogout/></span>

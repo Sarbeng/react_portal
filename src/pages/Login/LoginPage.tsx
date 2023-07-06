@@ -6,15 +6,18 @@ import { BsGoogle } from "react-icons/bs";
 import { PasswordInput } from "../../components/PasswordInput";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
-import {  useState,useContext } from "react";
+import {  useState } from "react";
 import axios from "axios"
 import { MdOutlineErrorOutline } from "react-icons/md";
-import AuthContext from "../../context/UserContext"
+import { useSignIn } from "react-auth-kit";
+//import AuthContext from "../../context/UserContext"
 
 export default function LoginPage() {
   //const {setAuth } = useContext(AuthContext);
  // const [success, setSuccess] = useState(null);
+ const signIn = useSignIn()
   const [error, setError] = useState(null)
+  const [user,setUser] = useState([])
   
   const navigate = useNavigate();
 
@@ -28,14 +31,17 @@ export default function LoginPage() {
     }
    })
    if (response) {
-    alert("Welcome Back in. Authenticating...")
-    navigate("/home")
-    const token = response.data.access_token;
-    if (token){
-      localStorage.setItem('user',JSON.stringify(response.data.user))
-    }
-    //console.log(response.data)
+     setUser(response.data.user)
+    // alert("Welcome Back in. Authenticating...")
+    // navigate("/home")
 
+
+    signIn({
+      token:response.data.access_token,
+      expiresIn:response.data.expires_in,
+      tokenType: response.data.token_type,
+      authState:{username:response.data.user.username}
+    })
 
    }
   } 

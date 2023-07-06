@@ -26,8 +26,10 @@ export default function Header() {
   const toggleSidebar = () => {
         setToggle(!toggle)
     }
-  
+    
+    //const [currentUser] = useState([])
     const user = localStorage.getItem('user');
+    //console.log(JSON.parse(user))
     //const [ currentUser, setCurrentUser ] = useContext(UserContext);
 
 
@@ -49,7 +51,7 @@ export default function Header() {
                 alt=""
                 className=" w-8 h-8 rounded-full object-cover"
               />
-              <h2>{user?.username}</h2>
+              <h2>{user}</h2>
               <MdOutlineArrowDropDown />
             </div>
           </button>
