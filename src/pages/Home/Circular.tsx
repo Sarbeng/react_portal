@@ -1,5 +1,4 @@
-import { MdOutlineArrowRight, MdOutlineChevronRight } from "react-icons/md";
-import LayoutPage from "../Layout/LayoutPage";
+import { MdOutlineChevronRight } from "react-icons/md";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../../components/LoadingSpinner";
@@ -10,15 +9,14 @@ export default function Circular() {
   const [isLoading,setIsLoading] = useState(false);
   // State to display error message
 const [errorMessage, setErrorMessage] = useState('');
- const getCircularData = () => {
+ const getCircularData = async () => {
   
   setIsLoading(true)
   
-  axios
+  await axios
   .get('http://127.0.0.1:8000/api/v1/circular')
   .then(response => {
     const circular = response.data.data;
-    console.log(circular);
     setCirculars(circular);
     setIsLoading(false) // hide loading screen
   })

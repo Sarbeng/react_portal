@@ -1,4 +1,4 @@
-import { NavLink,Link } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState} from "react";
 import {
   MdOutlineDashboard,
@@ -7,7 +7,9 @@ import {
   MdOutlineStackedLineChart,
   MdOutlineBallot,
   MdOutlineShoppingBag,
+  MdOutlineLogout,
 } from "react-icons/md";
+import axios from "axios";
 
 
 interface Props{
@@ -54,7 +56,17 @@ export default function Sidebar(props:Props) {
       
     ]
     
+    const goBackToLogin = useNavigate();
 
+    const handleLogout = async () => {
+      
+      
+        localStorage.removeItem('user')
+        //setCurrentUser({})
+        goBackToLogin('/')
+    
+      
+    }
     
 
   return (
@@ -78,6 +90,14 @@ export default function Sidebar(props:Props) {
             )
           })
         }
+        <button
+          
+          onClick={handleLogout}
+          className={ " hover:rounded-r-full hover:bg-primary-main hover:text-white" }
+          >
+            <p className="flex items-center gap-3  py-3 px-4 ">         <span className="text-2xl"><MdOutlineLogout/></span>
+          Logout</p>
+        </button>
       </div>
     </aside>
   );

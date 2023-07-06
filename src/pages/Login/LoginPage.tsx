@@ -6,11 +6,13 @@ import { BsGoogle } from "react-icons/bs";
 import { PasswordInput } from "../../components/PasswordInput";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
-import {  useState } from "react";
+import {  useState,useContext } from "react";
 import axios from "axios"
 import { MdOutlineErrorOutline } from "react-icons/md";
+import AuthContext from "../../context/UserContext"
 
 export default function LoginPage() {
+  //const {setAuth } = useContext(AuthContext);
  // const [success, setSuccess] = useState(null);
   const [error, setError] = useState(null)
   
@@ -21,14 +23,19 @@ export default function LoginPage() {
    //connecting to the logiin api
    const response =  await axios.post('http://127.0.0.1:8000/api/auth/login',values).catch((err) => {
     if (err) {
-      setError(err.response.data.message)
-      console.log(err.response.data.staff_no)
+      setError(err.response.data.error)
+      console.log(err.response.data.error)
     }
    })
    if (response) {
     alert("Welcome Back in. Authenticating...")
     navigate("/home")
-    console.log(response.data)
+    const token = response.data.access_token;
+    if (token){
+      localStorage.setItem('user',JSON.stringify(response.data.user))
+    }
+    //console.log(response.data)
+
 
    }
   } 

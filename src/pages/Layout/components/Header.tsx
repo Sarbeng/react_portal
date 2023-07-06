@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import UccLogo from "../../../assets/UccLogo";
 import { MdOutlineArrowDropDown, MdOutlineMenu } from "react-icons/md";
 import Sidebar from "./Sidebar";
+import { Link, useNavigate } from 'react-router-dom';
+
+
 
 
 
@@ -23,6 +26,10 @@ export default function Header() {
   const toggleSidebar = () => {
         setToggle(!toggle)
     }
+  
+    const user = localStorage.getItem('user');
+    //const [ currentUser, setCurrentUser ] = useContext(UserContext);
+
 
 
   return (
@@ -42,7 +49,7 @@ export default function Header() {
                 alt=""
                 className=" w-8 h-8 rounded-full object-cover"
               />
-              <h2>User name</h2>
+              <h2>{user?.username}</h2>
               <MdOutlineArrowDropDown />
             </div>
           </button>
@@ -65,30 +72,6 @@ export default function Header() {
                   className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                 >
                   Personal Details
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Reset Password
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Earnings
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Sign out
                 </a>
               </li>
             </ul>
