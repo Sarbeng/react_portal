@@ -9,7 +9,6 @@ import {
   MdOutlineShoppingBag,
   MdOutlineLogout,
 } from "react-icons/md";
-import axios from "axios";
 import {useSignOut} from "react-auth-kit";
 
 

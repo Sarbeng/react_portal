@@ -2,7 +2,7 @@ import { useState,useContext } from "react";
 import UccLogo from "../../../assets/UccLogo";
 import { MdOutlineArrowDropDown, MdOutlineMenu } from "react-icons/md";
 import Sidebar from "./Sidebar";
-import { Link, useNavigate } from 'react-router-dom';
+import {useAuthUser} from "react-auth-kit"
 
 
 
@@ -27,11 +27,7 @@ export default function Header() {
         setToggle(!toggle)
     }
     
-    //const [currentUser] = useState([])
-    const user = localStorage.getItem('user');
-    //console.log(JSON.parse(user))
-    //const [ currentUser, setCurrentUser ] = useContext(UserContext);
-
+   const auth = useAuthUser();
 
 
   return (
@@ -51,7 +47,7 @@ export default function Header() {
                 alt=""
                 className=" w-8 h-8 rounded-full object-cover"
               />
-              <h2>{user}</h2>
+              <h2>{auth()?.username}</h2>
               <MdOutlineArrowDropDown />
             </div>
           </button>
