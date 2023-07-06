@@ -17,7 +17,6 @@ export default function LoginPage() {
  // const [success, setSuccess] = useState(null);
  const signIn = useSignIn()
   const [error, setError] = useState(null)
-  const [user,setUser] = useState([])
   
   const navigate = useNavigate();
 
@@ -31,9 +30,8 @@ export default function LoginPage() {
     }
    })
    if (response) {
-     setUser(response.data.user)
     // alert("Welcome Back in. Authenticating...")
-    // navigate("/home")
+    
 
 
     signIn({
@@ -43,6 +41,7 @@ export default function LoginPage() {
       authState:{username:response.data.user.username}
     })
 
+    navigate("/home")
    }
   } 
 
