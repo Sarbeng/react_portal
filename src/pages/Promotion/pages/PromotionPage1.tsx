@@ -1,18 +1,15 @@
-import { MdOutlineClose, MdOutlineDelete, MdOutlineEdit, MdOutlineVisibility } from "react-icons/md";
+
 import LayoutPage from "../../Layout/LayoutPage";
-import SelectInput from "../../../components/SelectInput";
+
 import TextInput from "../../../components/TextInput";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Button from "../../../components/Button";
 import { useNavigate } from "react-router-dom"
+import { MdOutlineChevronRight } from "react-icons/md";
 
-interface Props {
-    showModal?: boolean;
-    handleModal?: React.MouseEventHandler<HTMLButtonElement> | undefined;
-}
 
-export default function PromotionPage1(props: Props) {
+export default function PromotionPage1() {
     const navigate = useNavigate()
    
     const formik = useFormik({
@@ -179,7 +176,7 @@ export default function PromotionPage1(props: Props) {
 
                         </section>
                         <section id="buttonSection" className="flex items-end justify-end">
-                            <Button buttonStyle="bg-primary-main text-white">Save & Continue</Button>
+                            <Button buttonStyle="bg-primary-main text-white">Save & Continue  <MdOutlineChevronRight/></Button>
                         </section>
                     </form>
                 </section>
