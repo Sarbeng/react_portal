@@ -4,7 +4,8 @@ interface Props {
   label?: string;
   value?: string;
   ref?: string;
-  inputStyle?:string
+  inputStyle?:string;
+  Style?:string;
   handleChange?: (
     e?:
       | React.ChangeEvent<HTMLInputElement>
@@ -29,7 +30,7 @@ export default function TextInput(props: Props) {
         {props.label}
       </label>
       <input
-        className={`${props.inputStyle =="error" ? errortStyle : defaultStyle} `}
+        className={`${props.Style} ${props.inputStyle =="error" ? errortStyle : defaultStyle} `}
         name={props.name}
         type={props.type}
         value={props.value}
