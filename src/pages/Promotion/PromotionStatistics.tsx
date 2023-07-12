@@ -1,7 +1,9 @@
-import { MdOutlineAddShoppingCart, MdOutlineBubbleChart, MdOutlineStackedLineChart } from "react-icons/md";
+import {  MdOutlineBubbleChart } from "react-icons/md";
 import ApplyButton from "../../components/ApplyButton";
+import {useNavigate} from "react-router-dom"
 
 export default function PromotionStatistics () {
+  const navigate = useNavigate();
     const statistics = [
         {
           id: 1,
@@ -27,7 +29,7 @@ export default function PromotionStatistics () {
           );
         })}
       </div>
-      <ApplyButton To="/promotion" Icon={<MdOutlineBubbleChart/>} heading="Apply for Promotion"/>
+      <ApplyButton To="/promotionPage1" Icon={<MdOutlineBubbleChart/>} heading="Apply for Promotion"/>
     </div>
         </div>
     )

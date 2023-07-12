@@ -1,5 +1,9 @@
-export default function PromotionPage3 () {
-    return <>
-    Promotion Page 3
-    </>
+import LayoutPage from "../../Layout/LayoutPage";
+
+export default function PromotionPage3() {
+    return (
+        <LayoutPage>
+            <section> Promotion Page 3</section>
+        </LayoutPage>
+    );
 }

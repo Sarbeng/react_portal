@@ -1,5 +1,11 @@
-export default function PromotionDocUpload () {
-    return <>
-    Promotion Doc Upload
-    </>
+import LayoutPage from "../../Layout/LayoutPage";
+
+export default function PromotionDocUpload() {
+    return (
+        <LayoutPage>
+            <section>
+                Promotion Doc Upload
+            </section>
+        </LayoutPage>
+    );
 }
