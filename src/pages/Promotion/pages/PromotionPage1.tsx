@@ -13,9 +13,8 @@ interface Props {
 }
 
 export default function PromotionPage1(props: Props) {
-    const handleOnclick = () => {
-        const navigate = useNavigate()
-    }
+    const navigate = useNavigate()
+   
     const formik = useFormik({
         initialValues: {
             aspiring_rank:"",
@@ -31,12 +30,14 @@ export default function PromotionPage1(props: Props) {
             department: Yup.string().required("Department should not be empty"),
             directorate: Yup.string().required("Directorate cannot be empty"),
             email:Yup.string().required(),
-            phone:Yup.number().required().min(10),
-            present_position:Yup.string().required(),
-            effective_date:Yup.date().required()
+            phone:Yup.number().required(),
+            present_position:Yup.string().required("Present position is a  required field"),
+            effective_date:Yup.date().required("Effective date cannot be empty")
         }),
         onSubmit: (values) => {
-            alert(JSON.stringify(values, null, 2))
+            alert(JSON.stringify(values, null, 2));
+            navigate('/promotionPage2')
+            
         }
     })
     return (
@@ -126,7 +127,7 @@ export default function PromotionPage1(props: Props) {
                                     <input
                                         className={` mt-2 mb-2 h-12 border text-sm border-primary-border rounded-lg w-full py-2 px-3 text-primary-main ${formik.touched.phone && formik.errors.phone? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused"}  bg-white`}
                                         name="phone"
-                                        type="number"
+                                        type="text"
                                         value={formik.values.phone}
                                         onBlur={formik.handleBlur}
                                         onChange={formik.handleChange}
@@ -145,20 +146,34 @@ export default function PromotionPage1(props: Props) {
                                         Present Position held (If any)
                                     </label>
                                     <input
-                                        className={`mt-2 mb-2 h-12 border w-full border-primary-border rounded-lg py-2 px-3 text-primary-main focus:outline-none  focus:border-primary-focused focus:ring-1 shadow-sm focus:ring-primary-focused  bg-white`}
-
+                                         className={` mt-2 mb-2 h-12 border text-sm border-primary-border rounded-lg w-full py-2 px-3 text-primary-main ${formik.touched.present_position && formik.errors.present_position? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused"}  bg-white`}
+                                        name="present_position"
+                                        type="text"
+                                        value={formik.values.present_position}
+                                        onBlur={formik.handleBlur}
+                                        onChange={formik.handleChange}
 
                                     />
+                                    {formik.touched.present_position && formik.errors.present_position ? (
+                        <div className="text-red-600">{formik.errors.present_position}</div>
+                      ) : null}
                                 </div>
                                 <div id="inputGroup" className="flex flex-col w-1/2" >
                                     <label className="capitalize" htmlFor="email">
                                         Effective Date
                                     </label>
                                     <input
-                                        className={`mt-2 mb-2 h-12 border w-full border-primary-border rounded-lg py-2 px-3 text-primary-main focus:outline-none  focus:border-primary-focused focus:ring-1 shadow-sm focus:ring-primary-focused  bg-white`}
-
+                                       className={` mt-2 mb-2 h-12 border text-sm border-primary-border rounded-lg w-full py-2 px-3 text-primary-main ${formik.touched.effective_date && formik.errors.effective_date? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused"}  bg-white`}
+                                        name="effective_date"
+                                        type="date"
+                                        value={formik.values.effective_date}
+                                        onBlur={formik.handleBlur}
+                                        onChange={formik.handleChange}
 
                                     />
+                                    {formik.touched.effective_date && formik.errors.effective_date ? (
+                        <div className="text-red-600">{formik.errors.effective_date}</div>
+                      ) : null}
                                 </div>
                             </div>
 
