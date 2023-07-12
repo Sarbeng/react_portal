@@ -10,6 +10,12 @@ import Promotion from "./pages/Promotion/Promotion"
 import Appraisal from "./pages/Appraisal/Appraisal";
 import Procurement from "./pages/Procurement/Procurement";
 import { RequireAuth } from "react-auth-kit";
+import PromotionPage1 from "./pages/Promotion/pages/PromotionPage1";
+import PromotionPage2 from "./pages/Promotion/pages/PromotionPage2";
+import PromotionPage3 from "./pages/Promotion/pages/PromotionPage3";
+import PromotionPage4 from "./pages/Promotion/pages/PromotionPage4";
+import PromotionPage5 from "./pages/Promotion/pages/PromotionPage5";
+import PromotionDocUpload from "./pages/Promotion/pages/PromotionDocUpload";
 
 function App() {
 
@@ -23,7 +29,15 @@ function App() {
         <Route path="/personalDetails" element={<PersonalDetails />} />
         {/* <Route path="/circular" element={<Circular />} /> */}
         <Route path="/leave" element={<RequireAuth loginPath="/"><LeavePage /></RequireAuth>} />
+        {/* Start of Promotion Pages */}
         <Route path="/promotion" element={<RequireAuth loginPath="/"><Promotion /></RequireAuth>} />
+        <Route path="/promotionpage1" element={<RequireAuth loginPath="/"><PromotionPage1 /></RequireAuth>} />
+        <Route path="/promotionpage2" element={<RequireAuth loginPath="/"><PromotionPage2 /></RequireAuth>} />
+        <Route path="/promotionpage3" element={<RequireAuth loginPath="/"><PromotionPage3 /></RequireAuth>} />
+        <Route path="/promotionpage4" element={<RequireAuth loginPath="/"><PromotionPage4 /></RequireAuth>} />
+        <Route path="/promotionpage5" element={<RequireAuth loginPath="/"><PromotionPage5 /></RequireAuth>} />
+        <Route path="/promotionDocUpload" element={<RequireAuth loginPath="/"><PromotionDocUpload /></RequireAuth>} />
+        {/* End of Promotion Pages */}
         <Route path="/appraisal" element={<RequireAuth loginPath="/"><Appraisal /></RequireAuth>} />
         <Route path="/procurement" element={<RequireAuth loginPath="/"><Procurement /></RequireAuth>} />
         <Route path="*" element={<Error404 />} />
