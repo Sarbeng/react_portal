@@ -5,8 +5,10 @@ import PromotionStatistics from "./PromotionStatistics";
 export default function Procurement () {
     return (
         <LayoutPage>
+            <section>
             <PromotionStatistics/>
             <PromotionRecords/>
+            </section>
         </LayoutPage>
     );
 }
