@@ -56,7 +56,7 @@ export default function PromotionPage4() {
                                 </label>
                                 <textarea
                                     className={`mt-2 mb-2 h-24 border text-sm border-primary-border rounded-lg w-full py-2 px-3 text-primary-main ${formik.touched.relevant_information && formik.errors.relevant_information ? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused"}  bg-white`}
-                                    name="publication_for_previous_applications"
+                                    name="relevant_information"
 
                                     value={formik.values.relevant_information}
                                     onBlur={formik.handleBlur}
