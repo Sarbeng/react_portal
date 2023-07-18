@@ -14,22 +14,27 @@ export default function AppraisalPage1() {
 
     const formik = useFormik({
         initialValues: {
-            aspiring_rank: "",
-            department: "",
-            directorate: "",
+            name: "",
+            staff_no: "",
             email: "",
             phone: "",
-            present_position: "",
-            effective_date: ""
+            apointment_date:"",
+            job_title:"",
+            supervisors_name:"",
+            supervisors_staff_no:"",
+            supervisors_rank: "",
+            year_under_review: ""
         },
         validationSchema: Yup.object({
-            aspiring_rank: Yup.string().required("Position must be selected"),
-            department: Yup.string().required("Department should not be empty"),
-            directorate: Yup.string().required("Directorate cannot be empty"),
+            name: Yup.string().required("Name field cannot be empty"),
+            staff_no: Yup.string().required("Staff number field cannot be empty"),
             email: Yup.string().required(),
             phone: Yup.number().required(),
-            present_position: Yup.string().required("Present position is a  required field"),
-            effective_date: Yup.date().required("Effective date cannot be empty")
+            apointment_date: Yup.date().required("Date field cannot be empty is a  required field"),
+            job_title: Yup.string().required("Job title field cannot be empty"),
+            supervisors_name: Yup.string().required("Supervisor's rank field cannot be empty"),
+            supervisors_staff_no: Yup.string().required("Supervisors staff number field cannot be empty"),
+            supervisors_rank: Yup.string().required("Supervisors rank field cannot be empty"),
         }),
         onSubmit: (values) => {
             alert(JSON.stringify(values, null, 2));
