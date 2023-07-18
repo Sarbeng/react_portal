@@ -121,7 +121,7 @@ export default function PromotionDocUpload() {
                             </div>
                             <div className="  w-full md:w-1/2">
                                 <Button buttonStyle="bg-primary-main text-white w-full">
-                                    Save & Continue <MdOutlineChevronRight />
+                                    Submit Application <MdOutlineChevronRight />
                                 </Button>
                             </div>
                         </section>
