@@ -27,7 +27,7 @@ export default function Appraisal () {
             :
             <>
             {/*If no appraisal exists display this */}
-            <ApplyButton To="" Icon={<MdOutlineBallot/> } heading="Fill Appraisal Form"/>
+            <ApplyButton To="/appraisalPage1" Icon={<MdOutlineBallot/> } heading="Fill Appraisal Form"/>
             <NoAppraisal/>
             </>
         }

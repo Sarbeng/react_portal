@@ -16,6 +16,9 @@ import PromotionPage3 from "./pages/Promotion/pages/PromotionPage3";
 import PromotionPage4 from "./pages/Promotion/pages/PromotionPage4";
 import PromotionPage5 from "./pages/Promotion/pages/PromotionPage5";
 import PromotionDocUpload from "./pages/Promotion/pages/PromotionDocUpload";
+import AppraisalPage1 from "./pages/Appraisal/pages/AppraisalPage1";
+import AppraisalPage2 from "./pages/Appraisal/pages/AppraisalPage2";
+import AppraisalPage3 from "./pages/Appraisal/pages/AppraisalPage3";
 
 function App() {
 
@@ -38,7 +41,13 @@ function App() {
         <Route path="/promotionpage5" element={<RequireAuth loginPath="/"><PromotionPage5 /></RequireAuth>} />
         <Route path="/promotionDocUpload" element={<RequireAuth loginPath="/"><PromotionDocUpload /></RequireAuth>} />
         {/* End of Promotion Pages */}
+        {/* Start of Appraisal Pages */}
         <Route path="/appraisal" element={<RequireAuth loginPath="/"><Appraisal /></RequireAuth>} />
+        <Route path="/appraisalPage1" element={<RequireAuth loginPath="/"><AppraisalPage1 /></RequireAuth>} />
+        <Route path="/appraisalPage2" element={<RequireAuth loginPath="/"><AppraisalPage2 /></RequireAuth>} />
+        <Route path="/appraisalPage3" element={<RequireAuth loginPath="/"><AppraisalPage3 /></RequireAuth>} />
+         {/* End of Appraisal Pages */}
+        
         <Route path="/procurement" element={<RequireAuth loginPath="/"><Procurement /></RequireAuth>} />
         <Route path="*" element={<Error404 />} />
       </Routes>
