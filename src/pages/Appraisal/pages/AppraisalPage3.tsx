@@ -6,35 +6,31 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Button from "../../../components/Button";
 import { useNavigate } from "react-router-dom"
-import { MdOutlineChevronRight } from "react-icons/md";
+import { MdOutlineChevronLeft, MdOutlineChevronRight, MdOutlineInfo } from "react-icons/md";
 
 
-export default function AppraisalPage3() {
-    const navigate = useNavigate()
-   
+export default function AppraisalPage2() {
+    const navigate = useNavigate();
+    const handleBack = () => {
+        navigate('/appraisalPage2')
+    }
+
     const formik = useFormik({
         initialValues: {
-            aspiring_rank:"",
-            department:"",
-            directorate:"",
-            email:"",
-            phone:"",
-            present_position:"",
-            effective_date:""
+            strength_and_improvement: "",
+            skills: "",
+            any_other_info: "",
         },
         validationSchema: Yup.object({
-            aspiring_rank: Yup.string().required("Position must be selected"),
-            department: Yup.string().required("Department should not be empty"),
-            directorate: Yup.string().required("Directorate cannot be empty"),
-            email:Yup.string().required(),
-            phone:Yup.number().required(),
-            present_position:Yup.string().required("Present position is a  required field"),
-            effective_date:Yup.date().required("Effective date cannot be empty")
+            strength_and_improvement: Yup.string().required("Please add areas of strength and improvement"),
+            skills: Yup.string().required("Please this is a required field"),
+            any_other_info: Yup.string().required("This is a required field"),
+
         }),
         onSubmit: (values) => {
             alert(JSON.stringify(values, null, 2));
-            navigate('/promotionPage2')
-            
+            navigate('/appraisalPage3')
+
         }
     })
     return (
@@ -55,128 +51,69 @@ export default function AppraisalPage3() {
                     <form onSubmit={formik.handleSubmit}>
                         <section id="inputs" className="flex flex-col gap-4">
                             <div id="inputGroup">
-                                <label className="capitalize" htmlFor="email">
-                                    Promotion to the rank of
+                                <label className="capitalize text-sm" htmlFor="email">
+                                Please list your area(s) of strength and area(s) of improvement:
                                 </label>
-                                <select className={` mt-2 mb-2 h-12 border text-sm border-primary-border rounded-lg w-full py-2 px-3 text-primary-main ${formik.touched.aspiring_rank && formik.errors.aspiring_rank ? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused"}  bg-white`} 
-                                name="aspiring_rank"
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                                value={formik.values.aspiring_rank}>
-                                    <option selected disabled>Select Rank</option>
-                                    <option>Administrator</option>
-                                    <option>Administrator 2</option>
-                                </select>
-                                {formik.touched.aspiring_rank && formik.errors.aspiring_rank ? (
-                        <div className="text-red-600">{formik.errors.aspiring_rank}</div>
-                      ) : null}
+                                <textarea
+                                    className={`mt-2 mb-2 h-24 border text-sm border-primary-border rounded-lg w-full py-2 px-3 text-primary-main ${formik.touched.strength_and_improvement && formik.errors.strength_and_improvement ? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused"}  bg-white`}
+                                    name="strength_and_improvement"
+
+                                    value={formik.values.strength_and_improvement}
+                                    onBlur={formik.handleBlur}
+                                    onChange={formik.handleChange}
+
+                                />
+                                  {formik.touched.strength_and_improvement && formik.errors.strength_and_improvement ? (
+                                    <div className="flex items-center gap-2 text-red-600"><MdOutlineInfo/> {formik.errors.strength_and_improvement}</div>
+                                ) : null}
                             </div>
-                            <div>
-                            <TextInput
-                             inputStyle={formik.touched.department && formik.errors.department ? ("error") : "default"}
-                             name="department"
-                             type="text"
-                             label="Department"
-                             handleBlur={formik.handleBlur}
-                             handleChange={formik.handleChange}
-                             value={formik.values.department}/>
-                             {formik.touched.department && formik.errors.department ? (
-                        <div className="text-red-600">{formik.errors.department}</div>
-                      ) : null}
+                            <div id="inputGroup">
+                                <label className="capitalize text-sm" htmlFor="email">
+                                What skills or new knowledge would you like to develop to improve your performance?: *
+                                </label>
+                                <textarea
+                                    className={`mt-2 mb-2 h-24 border text-sm border-primary-border rounded-lg w-full py-2 px-3 text-primary-main ${formik.touched.skills && formik.errors.skills ? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused"}  bg-white`}
+                                    name="skills"
+
+                                    value={formik.values.skills}
+                                    onBlur={formik.handleBlur}
+                                    onChange={formik.handleChange}
+
+                                />
+  {formik.touched.skills && formik.errors.skills ? (
+                                    <div className="flex items-center gap-2 text-red-600"><MdOutlineInfo/> {formik.errors.skills}</div>
+                                ) : null}
                             </div>
-                            <div>
-                            <TextInput 
-                             inputStyle={formik.touched.directorate && formik.errors.directorate ? ("error") : "default"}
-                            label="College/ Directorate" 
-                            name="directorate"
-                            type="text"
-                            handleBlur={formik.handleBlur}
-                            handleChange={formik.handleChange}
-                            value={formik.values.directorate}
-                            />
-                             {formik.touched.directorate && formik.errors.directorate ? (
-                        <div className="text-red-600">{formik.errors.directorate}</div>
-                      ) : null}
-                            </div>
+                            <div id="inputGroup">
+                                <label className="capitalize text-sm" htmlFor="email">
+                                Is there any other information you would like to share with your supervisor regarding your work performance?: *
+                                </label>
+                                <textarea
+                                    className={`mt-2 mb-2 h-24 border text-sm border-primary-border rounded-lg w-full py-2 px-3 text-primary-main ${formik.touched.any_other_info && formik.errors.any_other_info ? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused"}  bg-white`}
+                                    name="any_other_info"
 
-                            <div className="flex gap-4 w-full">
-                                <div id="inputGroup" className="flex flex-col w-1/2" >
-                                    <label className="capitalize" htmlFor="email">
-                                        E-mail Address
-                                    </label>
-                                    <input
-                                        className={` mt-2 mb-2 h-12 border text-sm border-primary-border rounded-lg w-full py-2 px-3 text-primary-main ${formik.touched.email && formik.errors.email ? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused"}  bg-white`}
-                                        name="email"
-                                        type="email"
-                                        value={formik.values.email}
-                                        onBlur={formik.handleBlur}
-                                        onChange={formik.handleChange}
+                                    value={formik.values.any_other_info}
+                                    onBlur={formik.handleBlur}
+                                    onChange={formik.handleChange}
 
-                                    />
-                                    {formik.touched.email && formik.errors.email ? (
-                        <div className="text-red-600">{formik.errors.email}</div>
-                      ) : null}
-                                </div>
-                                <div id="inputGroup" className="flex flex-col w-1/2" >
-                                    <label className="capitalize" htmlFor="email">
-                                        Telephone
-                                    </label>
-                                    <input
-                                        className={` mt-2 mb-2 h-12 border text-sm border-primary-border rounded-lg w-full py-2 px-3 text-primary-main ${formik.touched.phone && formik.errors.phone? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused"}  bg-white`}
-                                        name="phone"
-                                        type="text"
-                                        value={formik.values.phone}
-                                        onBlur={formik.handleBlur}
-                                        onChange={formik.handleChange}
-
-
-                                    />
-                                    {formik.touched.phone && formik.errors.phone ? (
-                        <div className="text-red-600">{formik.errors.phone}</div>
-                      ) : null}
-                                </div>
+                                />
+                                {formik.touched.any_other_info && formik.errors.any_other_info ? (
+                                    <div className="flex items-center gap-2 text-red-600"><MdOutlineInfo/> {formik.errors.any_other_info}</div>
+                                ) : null}
                             </div>
 
-                            <div className="flex gap-4 w-full">
-                                <div id="inputGroup" className="flex flex-col w-1/2" >
-                                    <label className="capitalize" htmlFor="email">
-                                        Present Position held (If any)
-                                    </label>
-                                    <input
-                                         className={` mt-2 mb-2 h-12 border text-sm border-primary-border rounded-lg w-full py-2 px-3 text-primary-main ${formik.touched.present_position && formik.errors.present_position? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused"}  bg-white`}
-                                        name="present_position"
-                                        type="text"
-                                        value={formik.values.present_position}
-                                        onBlur={formik.handleBlur}
-                                        onChange={formik.handleChange}
 
-                                    />
-                                    {formik.touched.present_position && formik.errors.present_position ? (
-                        <div className="text-red-600">{formik.errors.present_position}</div>
-                      ) : null}
-                                </div>
-                                <div id="inputGroup" className="flex flex-col w-1/2" >
-                                    <label className="capitalize" htmlFor="email">
-                                        Effective Date
-                                    </label>
-                                    <input
-                                       className={` mt-2 mb-2 h-12 border text-sm border-primary-border rounded-lg w-full py-2 px-3 text-primary-main ${formik.touched.effective_date && formik.errors.effective_date? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused"}  bg-white`}
-                                        name="effective_date"
-                                        type="date"
-                                        value={formik.values.effective_date}
-                                        onBlur={formik.handleBlur}
-                                        onChange={formik.handleChange}
-
-                                    />
-                                    {formik.touched.effective_date && formik.errors.effective_date ? (
-                        <div className="text-red-600">{formik.errors.effective_date}</div>
-                      ) : null}
-                                </div>
-                            </div>
 
                         </section>
-                        <section id="buttonSection" className="flex items-end justify-end">
-                            <Button buttonStyle="bg-primary-main text-white">Save & Continue  <MdOutlineChevronRight/></Button>
+                        <section id="buttonSection" className="flex w-full gap-4">
+                        <div className="w-1/2">
+                        <Button buttonStyle="bg-white border border-primary-border shadow text-primary-main w-full" onClick={handleBack}><MdOutlineChevronLeft/> Back</Button>
+                        </div>
+                        <div className="w-1/2">
+                        <Button buttonStyle="bg-primary-main text-white w-full">Submit Appraisal Form <MdOutlineChevronRight/></Button>
+                           
+                        </div>
+                        
                         </section>
                     </form>
                 </section>
