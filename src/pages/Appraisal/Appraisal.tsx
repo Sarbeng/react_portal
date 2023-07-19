@@ -5,18 +5,26 @@ import PreviousAppraisals from "./PreviousAppraisal";
 import NoAppraisal from "./NoAppraisal";
 import ApplyButton from "../../components/ApplyButton";
 import { useEffect, useState } from "react";
+import AppraisalsPendingReview from "./AppraisalsPendingReview";
 
 export default function Appraisal () {
     const [appraisal, setAppraisal] = useState(false);
+    const [hod,setHod] = useState(false);
     
     useEffect(()=>{
-        setAppraisal(false)
-    })
+        setAppraisal(true)
+        setHod(true)
+    },[hod])
     return (
         <LayoutPage>
             <div className="flex flex-col gap-8 pb-8">
+                
                 {appraisal?  <>
                 {/* if appraisal exists display current  Previous Appraisals Section */}
+                    {/* Pending  Appraisals for Review Section */}
+                 {hod ?
+                <AppraisalsPendingReview/> : null
+                }
                     <CurrentAppraisal/>
            
              
@@ -29,11 +37,14 @@ export default function Appraisal () {
             {/*If no appraisal exists display this */}
             <ApplyButton To="/appraisalPage1" Icon={<MdOutlineBallot/> } heading="Fill Appraisal Form"/>
             <NoAppraisal/>
+            {/* Pending  Appraisals for Review Section */}
+                 {hod ?
+                <AppraisalsPendingReview/> : null
+                }
             </>
         }
             
-                 {/* Current Appraisals Section */}
-            
+                 
             </div>
         </LayoutPage>
     );

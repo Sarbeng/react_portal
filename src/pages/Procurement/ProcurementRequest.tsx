@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 export default function ProcurementRequest() {
   const navigate = useNavigate();
   const handleBack = () => {
-    navigate('/promotionPage1')
+    navigate('/procurement')
 }
 
 
