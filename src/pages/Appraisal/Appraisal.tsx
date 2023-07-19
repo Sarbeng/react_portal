@@ -12,7 +12,7 @@ export default function Appraisal () {
     const [hod,setHod] = useState(false);
     
     useEffect(()=>{
-        setAppraisal(true)
+        setAppraisal(false)
         setHod(true)
     },[hod])
     return (

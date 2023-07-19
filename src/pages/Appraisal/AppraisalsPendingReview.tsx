@@ -1,7 +1,12 @@
 
 import {  MdOutlineApproval, MdOutlineVisibility } from "react-icons/md";
+import {useNavigate} from "react-router-dom"
 
 export default function AppraisalsPendingReview () {
+  const navigate = useNavigate();
+  const handleAppraisal = () => {
+    navigate('/HODappraisalPage1')
+  }
     return (
         <section>
         <h3 className="text-lg">Pending Appraisals for Review</h3>
@@ -56,6 +61,7 @@ export default function AppraisalsPendingReview () {
                <button
                 
                  className="flex flex-col  max-w-xs w-full gap-3  items-center justify-center" 
+                 onClick={handleAppraisal}
                  
                >
                  <span className="text-2xl">
