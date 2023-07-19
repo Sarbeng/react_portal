@@ -3,7 +3,7 @@ import {
   MdOutlineEdit,
   MdOutlineDelete,
 } from "react-icons/md";
-import ProcurementModal from "./ProcurementModal";
+import ProcurementModal from "./ProcurementRequest";
 import { useState } from "react";
 
 export default function ProcurementRecords() {

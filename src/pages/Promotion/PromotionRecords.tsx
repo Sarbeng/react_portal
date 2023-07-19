@@ -1,5 +1,5 @@
 import { MdOutlineVisibility, MdOutlineEdit, MdOutlineDelete } from "react-icons/md";
-import ProcurementModal from "../Procurement/ProcurementModal";
+import ProcurementModal from "../Procurement/ProcurementRequest";
 import { useEffect, useState } from "react";
 import axios from "axios";
 

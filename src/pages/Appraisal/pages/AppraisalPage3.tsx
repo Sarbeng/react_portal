@@ -29,7 +29,7 @@ export default function AppraisalPage2() {
         }),
         onSubmit: (values) => {
             alert(JSON.stringify(values, null, 2));
-            navigate('/appraisalPage3')
+            //navigate('/appraisalPage3')
 
         }
     })

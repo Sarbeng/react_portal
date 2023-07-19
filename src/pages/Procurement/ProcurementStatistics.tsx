@@ -26,7 +26,7 @@ export default function ProcurementStatistics() {
           );
         })}
       </div>
-      <ApplyButton To="/procurement" Icon={<MdOutlineAddShoppingCart/>} heading="Procure Items"/>
+      <ApplyButton To="/procurementRequest" Icon={<MdOutlineAddShoppingCart/>} heading="Procure Items"/>
     </div>
   );
 }

@@ -19,6 +19,7 @@ import PromotionDocUpload from "./pages/Promotion/pages/PromotionDocUpload";
 import AppraisalPage1 from "./pages/Appraisal/pages/AppraisalPage1";
 import AppraisalPage2 from "./pages/Appraisal/pages/AppraisalPage2";
 import AppraisalPage3 from "./pages/Appraisal/pages/AppraisalPage3";
+import ProcurementRequest from "./pages/Procurement/ProcurementRequest";
 
 function App() {
 
@@ -47,8 +48,10 @@ function App() {
         <Route path="/appraisalPage2" element={<RequireAuth loginPath="/"><AppraisalPage2 /></RequireAuth>} />
         <Route path="/appraisalPage3" element={<RequireAuth loginPath="/"><AppraisalPage3 /></RequireAuth>} />
          {/* End of Appraisal Pages */}
-        
+        {/* Start of Procurement Pages */}
         <Route path="/procurement" element={<RequireAuth loginPath="/"><Procurement /></RequireAuth>} />
+        <Route path="/procurementRequest" element={<RequireAuth loginPath="/"><ProcurementRequest /></RequireAuth>} />
+         {/* End of Procurement Pages */}
         <Route path="*" element={<Error404 />} />
       </Routes>
       </BrowserRouter>
