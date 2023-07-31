@@ -18,7 +18,7 @@ export default function FormHeading(props:Props) {
 
 
             </div>
-            <h1 className="text-center text-lg md:text-xl  mb-10">{props.pageHeader}</h1>
+            <h1 className="text-center text-lg md:text-xl  mb-6">{props.pageHeader}</h1>
         </section>
     );
 }
