@@ -102,7 +102,7 @@ export default function AppraisalFormBPage1() {
                                     </label>
                                     <input
                                         className={` mt-2 mb-2 h-12 border text-sm border-primary-border rounded-lg w-full py-2 px-3 text-primary-main ${formik.touched.employees_designation && formik.errors.employees_designation ? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused"}  bg-white`}
-                                        name="employees_designemployees_designation"
+                                        name="employees_designation"
                                         type="text"
                                         value={formik.values.employees_designation}
                                         onBlur={formik.handleBlur}
@@ -119,7 +119,7 @@ export default function AppraisalFormBPage1() {
                                     </label>
                                     <input
                                         className={` mt-2 mb-2 h-12 border text-sm border-primary-border rounded-lg w-full py-2 px-3 text-primary-main ${formik.touched.employees_dept && formik.errors.employees_dept ? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused"}  bg-white`}
-                                        name="phone"
+                                        name="employees_dept"
                                         type="text"
                                         value={formik.values.employees_dept}
                                         onBlur={formik.handleBlur}
@@ -158,7 +158,7 @@ export default function AppraisalFormBPage1() {
                                     </label>
                                     <input
                                         className={` mt-2 mb-2 h-12 border text-sm border-primary-border rounded-lg w-full py-2 px-3 text-primary-main ${formik.touched.supervisors_rank && formik.errors.supervisors_rank ? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused"}  bg-white`}
-                                        name="supervisors_staff_no"
+                                        name="supervisors_rank"
                                         type="text"
                                         value={formik.values.supervisors_rank}
                                         onBlur={formik.handleBlur}
@@ -171,23 +171,7 @@ export default function AppraisalFormBPage1() {
                                 </div>
                             </div>
                             <div className="flex gap-4 w-full">
-                            <div id="inputGroup" className="w-1/2">
-                                <label className="capitalize" htmlFor="email">
-                                    Promotion to the rank of
-                                </label>
-                                <select className={` mt-2 mb-2 h-12 border text-sm border-primary-border rounded-lg w-full py-2 px-3 text-primary-main ${formik.touched.aspiring_rank && formik.errors.aspiring_rank ? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused"}  bg-white`} 
-                                name="aspiring_rank"
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                                value={formik.values.aspiring_rank}>
-                                    <option selected disabled>Select Rank</option>
-                                    <option>Administrator</option>
-                                    <option>Administrator 2</option>
-                                </select>
-                                {formik.touched.aspiring_rank && formik.errors.aspiring_rank ? (
-                        <div className="text-red-600">{formik.errors.aspiring_rank}</div>
-                      ) : null}
-                            </div>
+                            
                                 <div id="inputGroup" className="flex flex-col w-1/2" >
                                     <label className="capitalize" htmlFor="email">
                                     Year under Review
@@ -206,6 +190,23 @@ export default function AppraisalFormBPage1() {
                                         <div className="text-red-600">{formik.errors.year_under_review}</div>
                                     ) : null}
                                 </div>
+                                <div id="inputGroup" className="w-1/2">
+                                <label className="capitalize" htmlFor="email">
+                                    Purpose of Current Review
+                                </label>
+                                <select className={` mt-2 mb-2 h-12 border text-sm border-primary-border rounded-lg w-full py-2 px-3 text-primary-main ${formik.touched.purpose_of_review && formik.errors.purpose_of_review ? "border-red-500 focus-within:outline-none  focus-within:border-red-500 focus-within:ring-1 shadow-sm focus-within:ring-red-500" : "border-primary-border focus-within:outline-none  focus-within:border-primary-focused focus-within:ring-1 shadow-sm focus-within:ring-primary-focused"}  bg-white`} 
+                                name="purpose_of_review"
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.purpose_of_review}>
+                                    <option selected disabled>Select Rank</option>
+                                    <option>Administrator</option>
+                                    <option>Administrator 2</option>
+                                </select>
+                                {formik.touched.purpose_of_review && formik.errors.purpose_of_review ? (
+                        <div className="text-red-600">{formik.errors.purpose_of_review}</div>
+                      ) : null}
+                            </div>
                             </div>
 
                         </section>

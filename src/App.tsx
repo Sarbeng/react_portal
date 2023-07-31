@@ -39,7 +39,8 @@ function App() {
   return (
     <>
     {/* This is will handle all the routes in my application */}
-      <BrowserRouter>
+      
+      
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/home" element={<RequireAuth loginPath="/"><HomePage /></RequireAuth>} />
@@ -82,7 +83,7 @@ function App() {
          {/* End of Procurement Pages */}
         <Route path="*" element={<Error404 />} />
       </Routes>
-      </BrowserRouter>
+      
       
       
     </>

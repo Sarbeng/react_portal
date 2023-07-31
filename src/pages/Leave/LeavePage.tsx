@@ -35,11 +35,12 @@ export default function LeavePage() {
           <LeaveStatistics />
         </section>
         <section>
-            <ApplyButton To="/leave" Icon={<MdOutlineWorkHistory/>} heading="Apply Leave"/>
+            <ApplyButton To="/leave" Icon={<MdOutlineWorkHistory/>} heading="Apply Leave" onClick={handleModal}/>
         </section>
         <section>
             <LeaveRecords/>
         </section>
+        <LeaveModal showModal={showModal} handleModal={handleModal} />
       </div>
     </LayoutPage>
   );
