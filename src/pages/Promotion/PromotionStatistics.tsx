@@ -1,9 +1,9 @@
 import {  MdOutlineBubbleChart } from "react-icons/md";
 import ApplyButton from "../../components/ApplyButton";
-import {useNavigate} from "react-router-dom"
+//import {useNavigate} from "react-router-dom"
 
 export default function PromotionStatistics () {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
     const statistics = [
         {
           id: 1,

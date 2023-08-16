@@ -1,19 +1,19 @@
 import { MdOutlineVisibility, MdOutlineEdit, MdOutlineDelete } from "react-icons/md";
-import ProcurementModal from "../Procurement/ProcurementRequest";
+//import ProcurementModal from "../Procurement/ProcurementRequest";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function PromotionRecords() {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
 
-  const handleModal = (event: any) => {
-    event.preventDefault();
-    //event.currentTarget.disabled = true;
-    setShowModal(!showModal);
-  };
+  // const handleModal = (event: any) => {
+  //   event.preventDefault();
+  //   //event.currentTarget.disabled = true;
+  //   setShowModal(!showModal);
+  // };
 
   const [promotionRecords, setPromotionRecords] = useState([]);
-  const [errorMessage, setErrorMessage] = useState('');
+  //const [errorMessage, setErrorMessage] = useState('');
 
   const getPromotionRecords = async () => {
     await axios
@@ -41,7 +41,7 @@ export default function PromotionRecords() {
           <h3 className="text-lg">Your Current Promotion</h3>
 
           {
-            promotionRecords.map((promotion) => {
+            promotionRecords.map(() => {
               return (
                 <div className="py-4">
 

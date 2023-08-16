@@ -1,12 +1,11 @@
 
 import LayoutPage from "../../Layout/LayoutPage";
 
-import TextInput from "../../../components/TextInput";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Button from "../../../components/Button";
 import { useNavigate } from "react-router-dom"
-import { MdOutlineChevronLeft, MdOutlineChevronRight } from "react-icons/md";
+import {  MdOutlineChevronRight } from "react-icons/md";
 
 
 export default function AppraisalFormBPage1() {

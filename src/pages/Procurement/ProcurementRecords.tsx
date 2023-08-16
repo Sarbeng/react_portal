@@ -3,17 +3,16 @@ import {
   MdOutlineEdit,
   MdOutlineDelete,
 } from "react-icons/md";
-import ProcurementModal from "./ProcurementRequest";
-import { useState } from "react";
+//import { useState } from "react";
 
 export default function ProcurementRecords() {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
 
-  const handleModal = (event: any) => {
-    event.preventDefault();
-    //event.currentTarget.disabled = true;
-    setShowModal(!showModal);
-  };
+  // const handleModal = (event: any) => {
+  //   event.preventDefault();
+  //   //event.currentTarget.disabled = true;
+  //   setShowModal(!showModal);
+  // };
 
   return (
     <div>
