@@ -1,4 +1,4 @@
-import { useState,useContext } from "react";
+import { useState} from "react";
 import UccLogo from "../../../assets/UccLogo";
 import { MdOutlineArrowDropDown, MdOutlineMenu } from "react-icons/md";
 import Sidebar from "./Sidebar";
