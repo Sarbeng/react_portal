@@ -16,15 +16,16 @@ export default function LoginPage() {
   //const {setAuth } = useContext(AuthContext);
  // const [success, setSuccess] = useState(null);
  //const signIn = useSignIn()
-  const [error, setError] = useState(null)
+  const [error, //setError
+] = useState(null)
   
   const navigate = useNavigate();
 
   // add values as a parameter
-  const onSubmit = async (//values:any
-    ) =>{
-    setError(null)
-   //connecting to the logiin api
+  // const onSubmit = async (values:any) =>{
+  //   setError(null)
+  //   console.log(values)
+  //  //connecting to the logiin api
   //  const response =  await axios.post('http://127.0.0.1:8000/api/auth/login',values).catch((err) => {
   //   if (err) {
   //     setError(err.response.data.error)
@@ -45,8 +46,9 @@ export default function LoginPage() {
 
   //   navigate("/home")
   //  }
-  navigate("/home")
-  } 
+  // alert("Welcome Back in. Authenticating...");
+  // navigate("/home")
+  // } 
 
   const formik = useFormik({
     initialValues: {
@@ -58,7 +60,11 @@ export default function LoginPage() {
       password: Yup.string().required("Password field cannot be empty"),
     }),
     validateOnBlur:true,
-    onSubmit,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+      navigate('/dashboard/home')
+      
+  },
   });
 
   

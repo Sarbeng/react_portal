@@ -1,5 +1,4 @@
 
-import LayoutPage from "../Layout/LayoutPage";
 import LeaveModal from "./LeaveModal";
 import { useState } from "react";
 import LeaveStatistics from "./LeaveStatistics";
@@ -16,7 +15,7 @@ export default function LeavePage() {
     setShowModal(!showModal);
   };
   return (
-    <LayoutPage>
+    <>
       <div>
         {/* <section>
           <div className="flex   items-center gap-3 justify-between">
@@ -41,6 +40,6 @@ export default function LeavePage() {
         </section>
         <LeaveModal showModal={showModal} handleModal={handleModal} />
       </div>
-    </LayoutPage>
+    </>
   );
 }

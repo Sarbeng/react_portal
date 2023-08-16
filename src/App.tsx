@@ -43,7 +43,8 @@ function App() {
       
       <Routes>
         <Route path="/" element={<LoginPage />} />
-        <Route path="/home" element={<RequireAuth loginPath="/"><HomePage /></RequireAuth>} />
+        <Route path="/home" element={<RequireAuth loginPath="/">
+          <HomePage /></RequireAuth>} />
         <Route path="/personalDetails" element={<PersonalDetails />} />
         {/* <Route path="/circular" element={<Circular />} /> */}
         <Route path="/leave" element={<RequireAuth loginPath="/"><LeavePage /></RequireAuth>} />
