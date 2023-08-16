@@ -25,33 +25,33 @@ export default function Sidebar(props:Props) {
       {
         linkName:"Dashboard",
         linkIcon: <MdOutlineDashboard/>,
-        linkTo:"/home"
+        linkTo:"/dashboard/home"
       },
       {
         linkName:"Personal Details",
         linkIcon: <MdOutlinePerson/>,
-        linkTo:"/personalDetails"
+        linkTo:"/dashboard/personalDetails"
       }
       ,
       {
         linkName:"Leave",
         linkIcon: <MdOutlineWorkOff/>,
-        linkTo:"/leave"
+        linkTo:"/dashboard/leave"
       },
       {
         linkName:"Appraisal",
         linkIcon: <MdOutlineBallot/>,
-        linkTo:"/appraisal"
+        linkTo:"/dashboard/appraisal"
       },
       {
         linkName:"Promotion",
         linkIcon: <MdOutlineStackedLineChart/>,
-        linkTo:"/promotion"
+        linkTo:"/dashboard/promotion"
       },
       {
         linkName:"Procurement",
         linkIcon: <MdOutlineShoppingBag/>,
-        linkTo:"/procurement"
+        linkTo:"/dashboard/procurement"
       },
       
     ]

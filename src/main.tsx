@@ -7,6 +7,8 @@ import LoginPage from './pages/Login/LoginPage.tsx'
 import Error404 from './pages/Error404/Error404.tsx'
 import LayoutPage from './pages/Layout/LayoutPage.tsx'
 import PersonalDetails from './pages/PersonalDetails/PersonalDetails.tsx'
+import HomePage from './pages/Home/HomePage.tsx'
+import LeavePage from './pages/Leave/LeavePage.tsx'
 
 
 const router = createBrowserRouter([
@@ -21,7 +23,15 @@ const router = createBrowserRouter([
     children: [
       {
         path:'home',
+        element:<HomePage/>
+      },
+      {
+        path:'personalDetails',
         element:<PersonalDetails/>
+      },
+      {
+        path:'leave',
+        element:<LeavePage/>
       }
     ]
   }
