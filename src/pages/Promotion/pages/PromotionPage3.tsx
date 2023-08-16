@@ -1,5 +1,4 @@
 
-import LayoutPage from "../../Layout/LayoutPage";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -33,7 +32,7 @@ export default function PromotionPage3() {
         }
     })
     return (
-        <LayoutPage>
+        <>
             <div className="flex flex-col gap-8 pb-8">
                 <section className="shadow bg-white px-4 md:p-8 ">
                     <section id="heading" className="flex items-center justify-center mb-8">
@@ -118,6 +117,6 @@ read (if any)
                     </form>
                 </section>
             </div>
-        </LayoutPage>
+        </>
     );
 }

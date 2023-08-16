@@ -1,4 +1,4 @@
-import LayoutPage from "../Layout/LayoutPage";
+
 import { MdOutlineBallot, } from "react-icons/md";
 import CurrentAppraisal from "./CurrentAppraisal";
 import PreviousAppraisals from "./PreviousAppraisal";
@@ -16,7 +16,7 @@ export default function Appraisal () {
         setHod(true)
     },[hod])
     return (
-        <LayoutPage>
+        <>
             <div className="flex flex-col gap-8 pb-8">
                 
                 {appraisal?  <>
@@ -46,6 +46,6 @@ export default function Appraisal () {
             
                  
             </div>
-        </LayoutPage>
+        </>
     );
 }

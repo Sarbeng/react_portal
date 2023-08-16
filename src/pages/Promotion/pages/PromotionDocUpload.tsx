@@ -1,4 +1,4 @@
-import LayoutPage from "../../Layout/LayoutPage";
+
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -33,7 +33,7 @@ export default function PromotionDocUpload() {
         },
     });
     return (
-        <LayoutPage>
+        <>
             <div className="flex flex-col gap8 pb-8">
                 <section className="shadow bg-white px-4 md:p-8 ">
                     <section
@@ -127,6 +127,6 @@ export default function PromotionDocUpload() {
                     </form>
                 </section>
             </div>
-        </LayoutPage>
+        </>
     );
 }

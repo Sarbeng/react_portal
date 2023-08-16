@@ -1,5 +1,5 @@
 
-import LayoutPage from "../../Layout/LayoutPage";
+
 
 import TextInput from "../../../components/TextInput";
 import { useFormik } from "formik";
@@ -38,7 +38,7 @@ export default function PromotionPage1() {
         }
     })
     return (
-        <LayoutPage>
+        <>
             <div className="flex flex-col gap-8 pb-8">
                 <section className="shadow bg-white px-4 md:p-8 ">
                     <section id="heading" className="flex items-center justify-center mb-8">
@@ -188,6 +188,6 @@ export default function PromotionPage1() {
                     </form>
                 </section>
             </div>
-        </LayoutPage>
+        </>
     );
 }

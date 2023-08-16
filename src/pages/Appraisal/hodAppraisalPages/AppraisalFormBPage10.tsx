@@ -1,6 +1,4 @@
 
-import LayoutPage from "../../Layout/LayoutPage";
-
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Button from "../../../components/Button";
@@ -31,7 +29,7 @@ export default function AppraisalFormBPage10() {
         }
     })
     return (
-        <LayoutPage>
+        <>
             <div className="flex flex-col gap-8 pb-8">
                 <section className="shadow bg-white px-4 py-4 md:p-8 ">
                     <FormHeading
@@ -143,6 +141,6 @@ export default function AppraisalFormBPage10() {
                     </form>
                 </section>
             </div>
-        </LayoutPage>
+        </>
     );
 }
