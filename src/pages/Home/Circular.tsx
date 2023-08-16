@@ -5,7 +5,13 @@ import LoadingSpinner from "../../components/LoadingSpinner";
 
 export default function Circular() {
  
-  const [circulars,setCirculars] = useState([])
+  const [circulars,setCirculars] = useState([
+    {id:1,attachment:"http://127.0.0.1:8000/api/v1/circular", subject:"Christmas and new year holidays"},
+    {id:2,attachment:"http://127.0.0.1:8000/api/v1/circular", subject:"Christmas and new year holidays"},
+    {id:3,attachment:"http://127.0.0.1:8000/api/v1/circular", subject:"Christmas and new year holidays"},
+    {id:4,attachment:"http://127.0.0.1:8000/api/v1/circular", subject:"Christmas and new year holidays"},
+    {id:5,attachment:"http://127.0.0.1:8000/api/v1/circular", subject:"Christmas and new year holidays"}
+  ])
   const [isLoading,setIsLoading] = useState(false);
   // State to display error message
 const [errorMessage, setErrorMessage] = useState('');
@@ -58,7 +64,7 @@ const [errorMessage, setErrorMessage] = useState('');
                 href={`https://staffportal.ucc.edu.gh${circular.attachment}`}
                 className="mt-1 leading-tight flex items-center justify-between w-full max-w-sm gap-4 p-2 py-4  hover:bg-primary-surface hover:rounded-r-full"
               >
-                <p className="truncate ...">{circular.subject}</p> <span className="text-lg"><MdOutlineChevronRight /></span>
+                <p className="truncate ... uppercase w-72">{circular.subject}</p> <span className="text-lg"><MdOutlineChevronRight /></span>
                 
               </a>
                   )
