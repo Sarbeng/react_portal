@@ -20,7 +20,9 @@ export default function LoginPage() {
   
   const navigate = useNavigate();
 
-  const onSubmit = async (values:any) =>{
+  // add values as a parameter
+  const onSubmit = async (//values:any
+    ) =>{
     setError(null)
    //connecting to the logiin api
   //  const response =  await axios.post('http://127.0.0.1:8000/api/auth/login',values).catch((err) => {
