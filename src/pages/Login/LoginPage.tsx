@@ -7,15 +7,15 @@ import { PasswordInput } from "../../components/PasswordInput";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import {  useState } from "react";
-import axios from "axios"
+//import axios from "axios"
 import { MdOutlineErrorOutline } from "react-icons/md";
-import { useSignIn } from "react-auth-kit";
+//import { useSignIn } from "react-auth-kit";
 //import AuthContext from "../../context/UserContext"
 
 export default function LoginPage() {
   //const {setAuth } = useContext(AuthContext);
  // const [success, setSuccess] = useState(null);
- const signIn = useSignIn()
+ //const signIn = useSignIn()
   const [error, setError] = useState(null)
   
   const navigate = useNavigate();
