@@ -31,7 +31,7 @@ export default function AppraisalFormBPage9() {
     }),
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-      navigate("/hod_appraisalPage10");
+      navigate("/dashboard/hod_appraisalPage10");
     },
   });
   return (

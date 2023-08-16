@@ -24,7 +24,7 @@ export default function AppraisalFormBPage10() {
         }),
         onSubmit: (values) => {
             alert(JSON.stringify(values, null, 2));
-            navigate('/hod_appraisalPage11')
+            navigate('/dashboard/hod_appraisalPage11')
 
         }
     })

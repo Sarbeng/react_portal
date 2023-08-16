@@ -32,7 +32,7 @@ export default function AppraisalFormBPage1() {
         }),
         onSubmit: (values) => {
             alert(JSON.stringify(values, null, 2));
-            navigate('/appraisalPage2')
+            navigate('/dashboard/hod_appraisalPage2')
 
         }
     })
